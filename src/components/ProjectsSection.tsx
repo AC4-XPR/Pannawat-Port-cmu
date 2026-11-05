@@ -10,9 +10,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
   const [filter, setFilter] = useState<'all' | 'game' | 'tool' | 'web' | 'experiment'>('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
+  const personalProjects = PROJECTS.filter((project) => !project.certificateIds?.length);
   const filteredProjects = filter === 'all'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.category === filter);
+    ? personalProjects
+    : personalProjects.filter(p => p.category === filter);
 
   return (
     <section id="projects" className="py-20 border-b border-neutral-900 relative">
@@ -21,13 +22,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 border-b border-neutral-800/80">
           <div>
             <div className="text-xs font-mono text-purple-400 tracking-wider uppercase mb-1">
-              03. Featured Works & Engineering
+              03. Featured (Personal) Works & Engineering
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold font-display text-white tracking-tight">
               Projects & Game Creations
             </h2>
             <p className="text-sm text-neutral-400 mt-1 max-w-xl font-light">
-              ผลงานการพัฒนาเกม สถาปัตยกรรมซอฟต์แวร์ และเครื่องมืออำนวยความสะดวก
+              ผลงานส่วนตัวด้านการพัฒนาเกมและผลิตภัณฑ์ดิจิทัล ตั้งแต่แนวคิดและระบบเกม ไปจนถึงสถาปัตยกรรมซอฟต์แวร์และเครื่องมือที่ใช้งานได้จริง
             </p>
           </div>
 
@@ -41,7 +42,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
               }`}
             >
-              All Works ({PROJECTS.length})
+              All Works ({personalProjects.length})
             </button>
             <button
               onClick={() => setFilter('game')}
@@ -91,13 +92,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
           {filteredProjects.map((project, index) => {
             const isWide = index === 0 || index === 2; // Bento emphasis
             return (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className={`group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
-                  isWide ? 'md:col-span-2' : 'col-span-1'
-                }`}
-              >
+              <React.Fragment key={project.id}>
+                {project.group === 'additional' && filteredProjects[index - 1]?.group !== 'additional' && (
+                  <div className="md:col-span-2 lg:col-span-3 pt-5">
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-white">Additional Projects</h3>
+                    <p className="mt-1 text-xs text-neutral-400">ผลงานส่วนตัวเพิ่มเติมจากโปรเจกต์หลัก</p>
+                  </div>
+                )}
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className={`group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+                    isWide ? 'md:col-span-2' : 'col-span-1'
+                  }`}
+                >
                 <div>
                   {/* Thumbnail / Image container */}
                   <div className={`overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
@@ -160,7 +167,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                     <span>→</span>
                   </span>
                 </div>
-              </div>
+                </div>
+              </React.Fragment>
             );
           })}
         </div>

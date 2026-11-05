@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="mt-6 pt-5 border-t border-neutral-900/80 text-center text-[11px] text-neutral-400">
-          © 2026 {PROFILE_DATA.nameEn} ({PROFILE_DATA.nicknameEn}). All rights reserved. Web Portfolio for Admission to Chiang Mai University (CMU CAMT DG).
+          © 2026 {PROFILE_DATA.nameEn}. All rights reserved. Web Portfolio for Admission to Chiang Mai University (CMU CAMT DG).
         </div>
       </div>
     </footer>

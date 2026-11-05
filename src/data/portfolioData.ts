@@ -11,6 +11,8 @@ export interface ProjectSpecs {
 
 export interface ProjectItem {
   id: string;
+  certificateIds?: string[];
+  group?: 'additional';
   title: string;
   subtitle: string;
   tagline: string;
@@ -41,6 +43,8 @@ export interface CertificateItem {
   category: 'gamedev' | 'robotics' | 'science' | 'academic';
   description: string;
   image: string;
+  context?: string[];
+  relatedProjectIds?: string[];
   highlight?: boolean;
 }
 
@@ -63,8 +67,8 @@ export interface ActivityItem {
 export const PROFILE_DATA = {
   name: "นาย ปัณณวัฒน์ ฝั้นจักสาย",
   nameEn: "Pannawat Funjaksai",
-  nickname: "แอนดรูว์ / แอนดี้",
-  nicknameEn: "Andrews / Andy",
+  nickname: "แอนดี้",
+  nicknameEn: "Andy",
   tagline: "Game Developer · Software Architect · System Designer",
   bioHeadline: "Architecting modular game systems, visual workflow engines, and scalable digital experiences.",
   targetUniversity: "มหาวิทยาลัยเชียงใหม่ (Chiang Mai University)",
@@ -149,13 +153,11 @@ export const SOP_TEXT = {
   title: "Statement of Purpose",
   readingTime: "4 นาที",
   paragraphs: [
-    "ผมมีความสนใจด้านการเขียนโปรแกรมและพัฒนาเกมตั้งแต่อยู่ชั้นมัธยมศึกษาปีที่ 1 โดยเริ่มจากการทดลองใช้ Roblox Studio และศึกษาระบบต่าง ๆ ผ่าน Free Models ที่มีอยู่ ผมเรียนรู้การเขียนระบบ การออกแบบด่าน และการแก้ปัญหาจากการลงมือทำจริง จนเริ่มสร้าง Epic World ซึ่งเป็นหนึ่งในโปรเจกต์แรกที่ผมพัฒนาระบบหลายส่วนด้วยตัวเอง เมื่อโปรเจกต์มีขนาดใหญ่ขึ้น ผมเริ่มพบว่าการเขียนระบบแบบ Hard-code ทำให้แก้ไขและพัฒนาต่อยอดได้ยาก โดยเฉพาะระบบ Inventory ที่มีโค้ดยาวกว่า 3,000 บรรทัด ประสบการณ์นี้ทำให้ผมเริ่มสนใจการออกแบบโครงสร้างของซอฟต์แวร์ และมองเห็นว่าการพัฒนาเกมไม่ได้มีเพียงการทำให้ระบบทำงาน แต่ยังต้องคำนึงถึงการดูแลและพัฒนาต่อในระยะยาวด้วย",
-    "ในช่วงมัธยมปลาย ผมพัฒนา AOT: New Hope โดยสร้างระบบหลายส่วน เช่น ระบบต่อสู้ อุปกรณ์เคลื่อนที่สามมิติ ภารกิจ และระบบความก้าวหน้าของผู้เล่น รวมถึงแก้ปัญหาด้านฟิสิกส์ คณิตศาสตร์ ตรรกะ และประสิทธิภาพของเกม จนโปรเจกต์เริ่มมีผู้เล่น ยอดเข้าชม และชุมชน Discord เป็นของตัวเอง นอกจากนี้ ผมยังได้เข้าร่วมกิจกรรมและการแข่งขันพัฒนาเกม ซึ่งทำให้ได้เรียนรู้การทำงานภายใต้ข้อจำกัดด้านเวลาและการนำแนวคิดมาพัฒนาเป็นผลงานจริง ประสบการณ์เหล่านี้ทำให้ผมเข้าใจว่าเกมที่ดีไม่ได้ขึ้นอยู่กับความสามารถในการเขียนโปรแกรมเพียงอย่างเดียว แต่ต้องผสมผสานการออกแบบ ความคิดสร้างสรรค์ และความเข้าใจในผู้เล่นเข้าด้วยกัน",
-    "อย่างไรก็ตาม เส้นทางการพัฒนาของผมไม่ได้ราบรื่นเสมอไป ผมเคยถูกแฮ็กบัญชี Roblox จนสูญเสียทั้งกลุ่มและโปรเจกต์เก่าจำนวนมากที่ไม่สามารถกู้คืนได้ แม้จะเป็นความสูญเสียครั้งใหญ่ แต่ผมยังคงเรียนรู้ ทดลอง และนำโปรเจกต์บางส่วนกลับมาสร้างใหม่ เหตุการณ์นี้ทำให้ผมเรียนรู้ที่จะยอมรับความผิดพลาดและเริ่มต้นใหม่จากประสบการณ์ที่ผ่านมา อีกทั้งการพัฒนาโปรเจกต์ควบคู่ไปกับการเรียนในระดับมัธยมยังทำให้ผมมีข้อจำกัดด้านเวลาและพลังงาน ส่งผลให้ XPR Studio ไม่สามารถเติบโตไปได้ไกลเท่าที่ตั้งใจไว้ในช่วงที่ผ่านมา ผมยังมองว่านี่เป็นข้อจำกัดที่ต้องเรียนรู้ที่จะจัดการ ทั้งการวางแผน การแบ่งเวลา และการทำงานร่วมกับผู้อื่น แทนที่จะพยายามรับผิดชอบทุกอย่างด้วยตัวเอง",
-    "จากปัญหาที่พบในการพัฒนาเกม ผมเริ่มตั้งคำถามว่าจะออกแบบระบบอย่างไรให้พัฒนาและดูแลต่อได้ง่ายขึ้น จนนำไปสู่การพัฒนา MAS Framework เพื่อช่วยจัดโครงสร้างระบบภายในเกมให้แยกเป็นส่วนและนำกลับมาใช้ได้สะดวกขึ้น ผมนำไปทดลองกับโปรเจกต์จริงและพัฒนาต่อเนื่องจนถึงเวอร์ชัน 2.1.0 ต่อมาผมยังได้สร้าง SnapCursorX โปรแกรมบน Windows ด้วย Python และ C++ ซึ่งเป็นครั้งแรกที่ผมนำประสบการณ์จากการพัฒนาเกมมาต่อยอดเป็นซอฟต์แวร์นอก Roblox อย่างจริงจัง ประสบการณ์เหล่านี้ช่วยให้ผมพัฒนาทักษะด้านเทคนิค และมองเห็นความเป็นไปได้ในการนำความรู้ไปสร้างผลิตภัณฑ์ที่หลากหลายมากขึ้น",
-    "จากประสบการณ์ที่ผ่านมา ผมต้องการศึกษาต่อในสาขา Digital Game เพื่อพัฒนาความรู้ด้านการสร้างเกมให้ครอบคลุมมากกว่าการเขียนโปรแกรม ทั้งการออกแบบเกม การสร้างประสบการณ์ให้ผู้เล่น การสร้างสรรค์ผลงาน และกระบวนการพัฒนาเกมให้กลายเป็นผลิตภัณฑ์ที่ใช้งานได้จริง ผมสนใจวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่ เพราะเป็นสภาพแวดล้อมที่ผมต้องการพัฒนาทั้งความสามารถด้านเทคโนโลยีและความคิดสร้างสรรค์ นอกจากนี้ ผมยังต้องการโอกาสในการทำงานร่วมกับเพื่อนที่มีความถนัดแตกต่างกัน แลกเปลี่ยนความคิดเห็น และสร้างความสัมพันธ์กับผู้คนที่มีความสนใจในด้านเดียวกัน เพราะผมเชื่อว่าการสร้างเกมและผลิตภัณฑ์ที่ดีไม่ควรเกิดจากความสามารถของคนเพียงคนเดียว แต่เกิดจากการร่วมมือของคนที่มีความรู้และมุมมองหลากหลาย",
-    "ในระยะยาว ผมต้องการนำความรู้และประสบการณ์ที่ได้รับไปพัฒนา XPR Studio ภายใต้ XPR Group Corporation™ ให้เติบโตเป็นสตูดิโอที่สร้างเกมและผลิตภัณฑ์ดิจิทัลของตัวเอง โดยมี Alpha เป็นส่วนที่มุ่งเน้นการพัฒนาผลิตภัณฑ์ และ Beta เป็นส่วนที่มุ่งเน้นการพัฒนาบุคลากรและสร้างความร่วมมือระหว่างผู้คน นอกจากนี้ ผมยังมีความตั้งใจที่จะพัฒนา Game Engine และแพลตฟอร์มสำหรับผู้สร้างเกมในอนาคต เพื่อเปิดโอกาสให้ผู้สร้างสามารถพัฒนาและเผยแพร่ผลงานได้อย่างอิสระ ไม่ว่าจะผ่านแพลตฟอร์มของเราเอง หรือส่งออกตัวเกมไปเผยแพร่บนแพลตฟอร์มอื่นตามความต้องการ ผมต้องการสร้างเครื่องมือและทางเลือกที่ช่วยให้ผู้สร้างมีอิสระในการพัฒนาผลงานของตัวเองมากขึ้น",
-    "สำหรับผม การศึกษาที่ CAMT จึงไม่ใช่เพียงการเรียนรู้เพื่อเป็นนักพัฒนาเกม แต่เป็นโอกาสในการก้าวข้ามข้อจำกัดของการเรียนรู้และทำงานด้วยตัวเอง พัฒนาความสามารถทั้งด้านเทคนิคและความคิดสร้างสรรค์ เรียนรู้จากผู้อื่น และสร้างความร่วมมือที่จะต่อยอดไปสู่การทำงานจริงในอนาคต ผมต้องการนำสิ่งที่ได้เรียนรู้ไปสร้างผลิตภัณฑ์ สร้างทีม และพัฒนาองค์กรให้เติบโตได้จริง ภายใต้แนวคิด Exotic • Passionate • Revolutionize ของ XPR Group Corporation™"
+    "ผมมีความสนใจด้านการเขียนโปรแกรมและพัฒนาเกมตั้งแต่ชั้นมัธยมศึกษาปีที่ 1 โดยเริ่มจากการทดลองใช้ Roblox Studio และศึกษา Free Models ก่อนนำความรู้มาสร้าง Epic World ซึ่งเป็นหนึ่งในโปรเจกต์แรกที่ผมพัฒนาระบบต่าง ๆ ด้วยตัวเอง เมื่อโปรเจกต์มีขนาดใหญ่ขึ้น ผมพบว่าการเขียนระบบแบบ Hard-code ทำให้แก้ไขและพัฒนาต่อยอดได้ยาก โดยเฉพาะระบบ Inventory ที่มีโค้ดยาวกว่า 3,000 บรรทัด ทำให้ผมเริ่มสนใจการออกแบบโครงสร้างระบบและการพัฒนาเกมในระยะยาว",
+    "ต่อมาในช่วงมัธยมปลาย ผมพัฒนา AOT: New Hope โดยสร้างระบบต่อสู้ อุปกรณ์เคลื่อนที่สามมิติ ภารกิจ และระบบความก้าวหน้าของผู้เล่น รวมถึงแก้ปัญหาด้านฟิสิกส์ คณิตศาสตร์ และประสิทธิภาพ จนมีผู้เล่นและชุมชน Discord เป็นของตัวเอง นอกจากนี้ ผมยังเข้าร่วมกิจกรรมและการแข่งขันพัฒนาเกม ทำให้ได้เรียนรู้การนำแนวคิดมาสร้างเป็นผลงานจริง ผมเคยสูญเสียกลุ่มและโปรเจกต์เก่าจากการถูกแฮ็กบัญชี Roblox แต่ยังคงนำประสบการณ์ที่ผ่านมาเริ่มต้นและสร้างผลงานใหม่อีกครั้ง",
+    "จากปัญหาที่พบ ผมพัฒนา MAS Framework เพื่อช่วยจัดโครงสร้างระบบในเกมให้เป็นส่วนและดูแลต่อได้ง่ายขึ้น จนถึงเวอร์ชัน 2.1.0 และต่อยอดความรู้ไปสร้าง SnapCursorX โปรแกรมบน Windows ด้วย Python และ C++ อย่างไรก็ตาม การพัฒนาโปรเจกต์ควบคู่กับการเรียนทำให้ผมมีข้อจำกัดด้านเวลาและพลังงาน ส่งผลให้ XPR Studio ยังไม่เติบโตเท่าที่ตั้งใจ ประสบการณ์นี้ทำให้ผมเห็นถึงข้อจำกัดของการทำงานคนเดียว และต้องการพัฒนาทักษะการวางแผน การทำงานเป็นทีม และการร่วมมือกับผู้คนที่มีความถนัดแตกต่างกัน",
+    "ผมจึงสนใจศึกษาต่อสาขา Digital Game ณ วิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่ เพื่อพัฒนาความรู้ให้ครอบคลุมทั้งการเขียนโปรแกรม การออกแบบเกม และการสร้างประสบการณ์ให้ผู้เล่น รวมถึงเรียนรู้กระบวนการพัฒนาเกมให้เป็นผลิตภัณฑ์ที่ใช้งานได้จริง ผมต้องการใช้โอกาสระหว่างเรียนในการแลกเปลี่ยนความคิด ทำโปรเจกต์ร่วมกับผู้อื่น และสร้างเครือข่ายกับผู้ที่สนใจด้านเดียวกัน เพื่อนำไปต่อยอดในการทำงานจริงในอนาคต",
+    "ในระยะยาว ผมต้องการพัฒนา XPR Group Corporation™ 2/4 ส่วนแรกโดยมี Alpha มุ่งเน้นการสร้างเกมและผลิตภัณฑ์ดิจิทัลผ่าน XPR Studio และ Beta มุ่งเน้นการพัฒนาบุคลากรและสร้างความร่วมมือ นอกจากนี้ ผมยังมีเป้าหมายที่จะสร้าง Game Engine และแพลตฟอร์มที่เปิดโอกาสให้ผู้สร้างสามารถพัฒนาและเผยแพร่เกมได้อย่างอิสระ ทั้งบนแพลตฟอร์มของตัวเองหรือส่งออกไปเผยแพร่ที่อื่น สำหรับผม CAMT จึงเป็นก้าวสำคัญในการพัฒนาจากผู้สร้างเกมด้วยตัวเองไปสู่การเป็นนักพัฒนาเกมที่สามารถสร้างผลงานร่วมกับผู้อื่น สร้างทีม และต่อยอดแนวคิดให้เกิดขึ้นจริง ภายใต้แนวคิด Exotic • Passionate • Revolutionize"
   ]
 };
 
@@ -387,6 +389,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: "moradok-morana",
+    certificateIds: ["rst-gamejam-2024"],
     title: "มรดกมรณะ",
     subtitle: "RST Game Jam 2024 · 1st Runner-Up Award (อันดับ 2)",
     tagline: "เกมสยองขวัญสไตล์ไทยโบราณ สร้างเสร็จสมบูรณ์ภายใน 4 วัน คว้ารางวัลรองชนะเลิศอันดับที่ 1",
@@ -427,6 +430,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: "freedom-war-siam",
+    certificateIds: ["dpu-softpower-festival"],
     title: "The Freedom War of Siam",
     subtitle: "Thailand’s Soft Power Roblox Game Creation Festival (DPU)",
     tagline: "เกมต่อสู้มัลติเพลเยอร์ 3D อิงประวัติศาสตร์ไทยโบราณและพลังยันต์ จัดแสดงผลงาน ณ ห้างสรรพสินค้าชั้นนำ",
@@ -468,6 +472,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: "real-in-lair",
+    certificateIds: ["global-game-jam-2026"],
     title: "REAL IN LAIR",
     subtitle: "Global Game Jam 2026 (On-site Bangkok)",
     tagline: "เกม 3D Rhythm Runner บนธีม 'Mask' สร้างเสร็จภายใน 48 ชั่วโมง ณ สนาม On-site กรุงเทพฯ",
@@ -548,6 +553,7 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: "thera-time",
+    certificateIds: ["science-fair-northern-gold", "arts-crafts-gold", "lampang-rajabhat-science-week"],
     title: "THERA TIME (นาฬิกาเวลาแห่งการบำบัด)",
     subtitle: "Invention & Science Project · Micro:bit Physical Computing",
     tagline: "โครงงานวิทยาศาสตร์สิ่งประดิษฐ์นาฬิกาอัจฉริยะส่งเสริมการทำกายภาพบำบัดและตรวจจับการล้มในผู้สูงอายุ",
@@ -627,6 +633,55 @@ export const PROJECTS: ProjectItem[] = [
       result: "นำความรู้ไปใช้ออกแบบ Server Validation ป้องกันการดัดแปลงใน MAS Framework",
       status: "Research Completed"
     }
+  },
+  {
+    id: "epic-world",
+    group: "additional",
+    title: "Epic World",
+    subtitle: "RPG · Open World · Adventure",
+    tagline: "หนึ่งในโปรเจกต์เกมแรกที่เริ่มสร้างระบบด้วยตัวเอง จากการทดลองใช้ Roblox Studio และศึกษา Free Models",
+    category: "game",
+    year: "Early Personal Project",
+    highlightBadge: "Additional Personal Project",
+    role: ["Game Developer", "Systems Programmer"],
+    techStack: ["Roblox Studio", "Luau", "Open-World RPG Design"],
+    thumbnail: "/portfolio-assets/epic-world-cover.png",
+    gallery: ["/portfolio-assets/epic-world-cover.png"],
+    description: [
+      "Epic World เป็นหนึ่งในโปรเจกต์แรกที่ผมพัฒนาระบบเกมด้วยตัวเอง หลังจากเริ่มทดลองใช้ Roblox Studio และเรียนรู้จาก Free Models",
+      "เมื่อเกมมีขนาดใหญ่ขึ้น การเขียนระบบแบบ Hard-code โดยเฉพาะ Inventory ที่มีโค้ดยาวกว่า 3,000 บรรทัด ทำให้แก้ไขและต่อยอดได้ยาก ประสบการณ์นี้เป็นจุดเริ่มต้นที่ทำให้ผมสนใจการออกแบบสถาปัตยกรรมซอฟต์แวร์และระบบเกมที่ดูแลต่อได้",
+      "โปรเจกต์และกลุ่มเดิมสูญหายหลังบัญชี Roblox ถูกแฮ็ก"
+    ],
+    keyFeatures: [
+      "แนวเกม RPG ผจญภัยในโลกเปิด",
+      "ทดลองสร้างระบบเกมและ Inventory ด้วยตนเอง",
+      "เป็นจุดเริ่มต้นของความสนใจด้านโครงสร้างระบบและการพัฒนาเกมระยะยาว"
+    ],
+    impact: ["บทเรียนจากการดูแลระบบขนาดใหญ่ส่งต่อไปสู่การพัฒนา MAS Framework" ]
+  },
+  {
+    id: "furloughed-memories",
+    group: "additional",
+    title: "Furloughed Memories",
+    subtitle: "Asymmetrical Horror Survival · 5v1",
+    tagline: "เกมเอาชีวิตรอดสยองขวัญแบบไม่สมมาตร ที่ผู้เล่นแบ่งเป็นสองฝ่ายในรูปแบบ 5 ต่อ 1",
+    category: "game",
+    year: "Personal Project",
+    highlightBadge: "Additional Personal Project",
+    role: ["Lead Developer"],
+    techStack: ["Roblox Studio", "Luau", "MAS Framework v1.6.0"],
+    thumbnail: "/portfolio-assets/furloughed-memories-cover.png",
+    gallery: ["/portfolio-assets/furloughed-memories-cover.png"],
+    description: [
+      "โปรเจกต์เกมสยองขวัญเอาชีวิตรอดแบบ Asymmetrical Horror ที่วางรูปแบบการแข่งขันระหว่างผู้เล่น 5 คนกับอีก 1 คน",
+      "ผมรับหน้าที่ Lead Developer และดูแลการพัฒนาระบบด้วย MAS Framework v1.6.0",
+      "ยุติโครงการเนื่องจากทิศทางการพัฒนายังไม่ชัดเจน"
+    ],
+    keyFeatures: [
+      "รูปแบบเอาชีวิตรอดแบบ 5v1",
+      "วางโครงสร้างระบบโดยใช้ MAS Framework v1.6.0"
+    ],
+    impact: ["ได้ฝึกวางระบบและประเมินทิศทางของโปรเจกต์เกมก่อนขยายขอบเขตงาน"]
   }
 ];
 
@@ -640,6 +695,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "gamedev",
     description: "ประกาศนียบัตรมอบให้เพื่อยกย่องความพยายามและความสำเร็จในการได้รับรางวัลรองชนะเลิศอันดับที่ 1 ในการแข่งขันสร้างเกม Roblox 'RST Game Jam 2024' กับผลงาน มรดกมรณะ",
     image: "/portfolio-assets/cert-rst-gamejam-2024.jpg",
+    relatedProjectIds: ["moradok-morana"],
     highlight: true
   },
   {
@@ -662,6 +718,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "science",
     description: "งานวันการศึกษาเอกชนภาคเหนือครั้งที่ 12 จังหวัดพิจิตร ประจำปีพุทธศักราช 2569 กับโครงงาน THERA TIME (นาฬิกาเวลาแห่งการบำบัด)",
     image: "/portfolio-assets/cert-science-fair-northern.jpg",
+    relatedProjectIds: ["thera-time"],
     highlight: true
   },
   {
@@ -673,6 +730,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "science",
     description: "งานศิลปหัตถกรรมนักเรียน ระดับเขตพื้นที่การศึกษา ครั้งที่ 73 ประจำปีการศึกษา 2568",
     image: "/portfolio-assets/cert-arts-crafts-gold.jpg",
+    relatedProjectIds: ["thera-time"],
     highlight: true
   },
   {
@@ -684,6 +742,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "science",
     description: "เนื่องในงานสัปดาห์วิทยาศาสตร์นิทรรศน์ราชภัฏลำปาง '69 ณ หอประชุมใหญ่ มหาวิทยาลัยราชภัฏลำปาง",
     image: "/portfolio-assets/cert-lampang-rajabhat.jpg",
+    relatedProjectIds: ["thera-time"],
     highlight: true
   },
   {
@@ -706,6 +765,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "gamedev",
     description: "ระดับมัธยมศึกษา/ปวช. กับผลงานเกมประวัติศาสตร์ไทย 'The Freedom War of Siam' โดยทีม Ayutthaya.exe พร้อมจัดแสดงในงาน Exhibition Showcase",
     image: "/portfolio-assets/cert-dpu-softpower.png",
+    relatedProjectIds: ["freedom-war-siam"],
     highlight: true
   },
   {
@@ -717,6 +777,7 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "gamedev",
     description: "เข้าร่วมการแข่งขันสร้างเกม 48 ชั่วโมงระดับโลก On-site กรุงเทพฯ กับผลงานเกม Rhythm 3D 'REAL IN LAIR' ภายใต้แนวคิด Theme of the Mask",
     image: "/portfolio-assets/cert-ggj-2026.png",
+    relatedProjectIds: ["real-in-lair"],
     highlight: true
   },
   {
@@ -778,6 +839,36 @@ export const CERTIFICATES: CertificateItem[] = [
     category: "academic",
     description: "การทดสอบทักษะภาษาอังกฤษมาตรฐานสากล Listening: 24/24 (100%), Reading: 22/26, คะแนนรวม 46/50 คิดเป็น 92% เทียบเท่าระดับ CEFR B2",
     image: "/portfolio-assets/report-istudy-english.png",
+    highlight: true
+  },
+  {
+    id: "cmu-open-house-2025",
+    title: "CMU Open House 2025 Onsite · CAMT",
+    issuer: "มหาวิทยาลัยเชียงใหม่ · วิทยาลัยศิลปะ สื่อ และเทคโนโลยี",
+    date: "13 พฤศจิกายน 2568 (2025)",
+    awardLevel: "เข้าร่วมกิจกรรม",
+    category: "academic",
+    description: "ประกาศนียบัตรรับรองการเข้าร่วมกิจกรรม CMU Open House 2025 Onsite ที่วิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่",
+    image: "/portfolio-assets/cert-cmu-open-house-2025.png",
+    context: [
+      "เข้าร่วมกิจกรรม ณ วิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่",
+      "ได้เรียนรู้เกี่ยวกับสภาพแวดล้อมและแนวทางการศึกษาของ CAMT จากกิจกรรม Open House"
+    ],
+    highlight: true
+  },
+  {
+    id: "sice-fes-2025-opencv-hand",
+    title: "SICE FES 2025 · Artificial Hand Controlled by OpenCV",
+    issuer: "SICE FES · Robotics Engineering & AI, Chiang Mai University · IEEE",
+    date: "13 กันยายน 2025",
+    awardLevel: "Completed Post-Event Workshop",
+    category: "robotics",
+    description: "ประกาศนียบัตรรับรองการสำเร็จกิจกรรม Post Event หัวข้อ Artificial hand controlled by OpenCV-based programming ณ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่",
+    image: "/portfolio-assets/cert-sice-fes-2025-opencv.png",
+    context: [
+      "เรียนรู้การควบคุมมือกลด้วยโปรแกรมประมวลผลภาพ OpenCV",
+      "เชื่อมโยงแนวคิดด้าน Computer Vision การเขียนโปรแกรม และระบบหุ่นยนต์ในกิจกรรมเชิงปฏิบัติ"
+    ],
     highlight: true
   }
 ];

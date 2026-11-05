@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Award, ZoomIn, Calendar, ShieldCheck, ChevronRight, X, ExternalLink, Sparkles } from 'lucide-react';
-import { CERTIFICATES, CertificateItem } from '../data/portfolioData';
+import { CERTIFICATES, CertificateItem, PROJECTS, ProjectItem } from '../data/portfolioData';
 
 interface CertificatesSectionProps {
   onOpenImageModal: (src: string, title: string) => void;
@@ -13,6 +13,9 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
   const filteredCerts = filter === 'all'
     ? CERTIFICATES
     : CERTIFICATES.filter(c => c.category === filter);
+  const relatedProjects = selectedCert?.relatedProjectIds
+    ?.map((projectId) => PROJECTS.find((project) => project.id === projectId))
+    .filter((project): project is ProjectItem => project !== undefined) ?? [];
 
   return (
     <section id="awards" className="py-20 border-b border-neutral-900 relative">
@@ -27,7 +30,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
               Certificates & Achievements
             </h2>
             <p className="text-sm text-neutral-400 mt-1 max-w-xl font-light">
-              หลักฐานแสดงคุณสมบัติ ความสามารถ และทักษะที่ได้รับจากการแข่งขันและโครงการระดับชาติ
+              หลักฐานแสดงความสามารถจากการแข่งขันพัฒนาเกม โครงการ กิจกรรมด้านวิศวกรรม และเวทีระดับชาติ
             </p>
           </div>
 
@@ -232,6 +235,57 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
                   {selectedCert.description}
                 </p>
               </div>
+
+              {selectedCert.context && selectedCert.context.length > 0 && (
+                <div className="space-y-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">
+                    บริบทกิจกรรม & ทักษะที่ได้รับ
+                  </h4>
+                  <ul className="space-y-2 p-4 rounded-xl bg-purple-950/20 border border-purple-900/30 list-disc list-inside">
+                    {selectedCert.context.map((item, index) => <li key={index}>{item}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              {relatedProjects.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-semibold text-white font-mono uppercase tracking-wider">
+                    ผลงานที่เกี่ยวข้อง · Project Context
+                  </h4>
+                  {relatedProjects.map((project) => (
+                    <article key={project.id} className="p-4 sm:p-5 rounded-xl bg-neutral-950/70 border border-neutral-800 space-y-4">
+                      <div>
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <h5 className="text-base font-semibold text-white">{project.title}</h5>
+                          <span className="text-[11px] text-purple-300 font-mono">{project.year}</span>
+                        </div>
+                        <p className="mt-1 text-xs text-neutral-400">{project.subtitle}</p>
+                      </div>
+                      <div className="space-y-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                        {project.description.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.techStack.map((technology) => (
+                          <span key={technology} className="px-2 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[10px] text-neutral-300 font-mono">
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                      {project.keyFeatures && (
+                        <ul className="space-y-1.5 text-xs text-neutral-300">
+                          {project.keyFeatures.map((feature, index) => <li key={index}>• {feature}</li>)}
+                        </ul>
+                      )}
+                      {project.impact && (
+                        <div className="pt-3 border-t border-neutral-800/80 space-y-1">
+                          <span className="text-[11px] text-purple-300 font-mono uppercase">ผลลัพธ์ & บทบาท</span>
+                          {project.impact.map((item, index) => <p key={index} className="text-xs text-neutral-300">{item}</p>)}
+                        </div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              )}
 
               {/* Actions */}
               <div className="flex items-center justify-between pt-3 border-t border-neutral-800">

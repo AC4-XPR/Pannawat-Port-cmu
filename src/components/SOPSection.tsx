@@ -27,25 +27,13 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
 
         {/* Content Layout: 12-column grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-8">
-          {/* Left: Statement of Purpose Prose (Preserving 100% of authentic text verbatim) */}
-          <div className="lg:col-span-7 space-y-5 text-neutral-200 text-xs sm:text-sm leading-relaxed">
-            {SOP_TEXT.paragraphs.map((paragraph, index) => (
-              <p
-                key={index}
-                className={`p-4 rounded-xl border border-neutral-800/60 transition-colors hover:border-neutral-700/80 ${
-                  index === 0
-                    ? 'bg-neutral-900/40 text-neutral-100 font-normal'
-                    : index === 3
-                    ? 'bg-purple-950/20 border-purple-900/30'
-                    : index === 4 || index === 5
-                    ? 'bg-neutral-900/30'
-                    : 'bg-neutral-900/20'
-                }`}
-              >
-                {paragraph}
-              </p>
-            ))}
-
+          {/* The full statement stays in one card; the motto remains separate below. */}
+          <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-200 text-xs sm:text-sm leading-relaxed">
+            <div className="space-y-4">
+              {SOP_TEXT.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
 
           {/* Right: Profile & Education Data Cards */}
