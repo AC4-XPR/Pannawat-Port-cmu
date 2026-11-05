@@ -36,7 +36,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-neutral-900/90 border border-neutral-800 rounded-xl self-start sm:self-auto">
             <button
               onClick={() => setFilter('all')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'all'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'all'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -46,7 +47,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
             </button>
             <button
               onClick={() => setFilter('game')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'game'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'game'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -56,7 +58,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
             </button>
             <button
               onClick={() => setFilter('tool')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'tool'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'tool'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -66,7 +69,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
             </button>
             <button
               onClick={() => setFilter('web')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'web'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'web'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -76,7 +80,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
             </button>
             <button
               onClick={() => setFilter('experiment')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'experiment'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'experiment'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -101,10 +106,20 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                 )}
                 <div
                   onClick={() => setSelectedProject(project)}
-                  className={`vfx-card group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setSelectedProject(project);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Select ${project.title}`}
+                  className={`vfx-card selection-target group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
                     isWide ? 'md:col-span-2' : 'col-span-1'
                   }`}
                 >
+                  <span className="select-stamp" aria-hidden="true">SELECT</span>
                 <div>
                   {/* Thumbnail / Image container */}
                   <div className={`overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>

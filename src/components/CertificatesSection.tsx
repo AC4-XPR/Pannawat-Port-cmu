@@ -38,7 +38,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-neutral-900/90 border border-neutral-800 rounded-xl self-start sm:self-auto">
             <button
               onClick={() => setFilter('all')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'all'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'all'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -48,7 +49,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
             </button>
             <button
               onClick={() => setFilter('gamedev')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'gamedev'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'gamedev'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -58,7 +60,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
             </button>
             <button
               onClick={() => setFilter('robotics')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'robotics'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'robotics'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -68,7 +71,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
             </button>
             <button
               onClick={() => setFilter('science')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'science'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'science'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -78,7 +82,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
             </button>
             <button
               onClick={() => setFilter('academic')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
+              aria-pressed={filter === 'academic'}
+              className={`selection-filter px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                 filter === 'academic'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
@@ -95,8 +100,18 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
             <div
               key={cert.id}
               onClick={() => setSelectedCert(cert)}
-              className="vfx-card group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setSelectedCert(cert);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Select ${cert.title}`}
+              className="vfx-card selection-target group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between"
             >
+              <span className="select-stamp" aria-hidden="true">SELECT</span>
               <div>
                 {/* Certificate Image Frame */}
                 <div className="relative aspect-[4/3] bg-neutral-950 overflow-hidden">

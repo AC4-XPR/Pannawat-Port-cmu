@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SOPSection } from './components/SOPSection';
@@ -15,9 +15,27 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ImageModal } from './components/ImageModal';
 import { BackgroundEffects } from './components/BackgroundEffects';
+import { IntroLoader } from './components/IntroLoader';
 
 export default function App() {
   const [modalImage, setModalImage] = useState<{ src: string; title: string } | null>(null);
+  const [introActive, setIntroActive] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  useEffect(() => {
+    if (!introActive) return;
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    root.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    const timer = window.setTimeout(() => setIntroActive(false), 3000);
+    return () => {
+      window.clearTimeout(timer);
+      root.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+    };
+  }, [introActive]);
 
   const handleOpenImageModal = (src: string, title: string) => {
     setModalImage({ src, title });
@@ -30,7 +48,7 @@ export default function App() {
   return (
     <div className="min-h-screen relative isolate bg-neutral-950 text-neutral-100 font-sans selection:bg-purple-600/30 selection:text-purple-200">
       <BackgroundEffects />
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className={`relative z-10 min-h-screen flex flex-col ${introActive ? 'site-content-hidden' : 'site-content-enter'}`} aria-hidden={introActive} inert={introActive}>
         {/* Top Navbar */}
         <Navbar />
 
@@ -48,6 +66,8 @@ export default function App() {
         {/* Footer */}
         <Footer />
       </div>
+
+      {introActive && <IntroLoader />}
 
       {/* Lightbox Image Inspection Modal */}
       <ImageModal
