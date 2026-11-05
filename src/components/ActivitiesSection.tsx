@@ -28,7 +28,7 @@ export const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onOpenImag
           {ACTIVITIES.map((act, index) => (
             <div
               key={act.id}
-              className="p-6 sm:p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-neutral-700/80 transition-colors space-y-6"
+              className="vfx-card p-6 sm:p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-neutral-700/80 transition-colors space-y-6"
             >
               {/* Header Info */}
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-neutral-800">

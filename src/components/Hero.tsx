@@ -29,7 +29,7 @@ export const Hero: React.FC = () => {
             <div className="space-y-1">
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-display leading-[1.1]">
                 PANNAWAT <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-300">
+                <span className="animated-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-300">
                   FUNJAKSAI
                 </span>
               </h1>
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <a
                 href="#sop"
-                className="px-4 py-2 text-xs font-semibold text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors whitespace-nowrap shadow-sm shadow-purple-900/50"
+                className="vfx-button px-4 py-2 text-xs font-semibold text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors whitespace-nowrap shadow-sm shadow-purple-900/50"
               >
                 อ่าน Statement of Purpose
               </a>
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
 
           {/* Right Column: Visual Container */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[270px] sm:max-w-[310px] rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 shadow-xl shadow-purple-950/20 group">
+            <div className="vfx-card w-full max-w-[270px] sm:max-w-[310px] rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 shadow-xl shadow-purple-950/20 group">
               {/* Profile Image with subtle framing */}
               <div className="aspect-[4/3] overflow-hidden bg-neutral-950 relative">
                 <img

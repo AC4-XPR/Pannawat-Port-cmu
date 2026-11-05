@@ -101,7 +101,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                 )}
                 <div
                   onClick={() => setSelectedProject(project)}
-                  className={`group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+                  className={`vfx-card group cursor-pointer rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-purple-500/50 hover:bg-neutral-900/70 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
                     isWide ? 'md:col-span-2' : 'col-span-1'
                   }`}
                 >
