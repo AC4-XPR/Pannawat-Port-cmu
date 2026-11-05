@@ -1,12 +1,8 @@
 import React from 'react';
-import { Quote, GraduationCap, ZoomIn, School, User } from 'lucide-react';
+import { Quote, GraduationCap, School, User } from 'lucide-react';
 import { PROFILE_DATA, SOP_TEXT, EDUCATION_DATA } from '../data/portfolioData';
 
-interface SOPSectionProps {
-  onOpenImageModal: (src: string, title: string) => void;
-}
-
-export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
+export const SOPSection: React.FC = () => {
   return (
     <section id="sop" className="py-16 sm:py-20 border-b border-neutral-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,7 +24,7 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
         {/* Content Layout: 12-column grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-8">
           {/* The full statement stays in one card; the motto remains separate below. */}
-          <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-200 text-xs sm:text-sm leading-relaxed">
+          <div className="lg:col-span-12 p-5 sm:p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-200 text-xs sm:text-sm leading-relaxed">
             <div className="space-y-4">
               {SOP_TEXT.paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -37,7 +33,7 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
           </div>
 
           {/* Right: Profile & Education Data Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
 
             {/* Student Personal Profile Card */}
             <div className="p-5 rounded-xl bg-neutral-900/50 border border-neutral-800 space-y-3.5">
@@ -118,59 +114,11 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
                 </div>
               </div>
 
-              {/* Official Transcript Documents (ปพ.1) Preview */}
-              <div className="pt-3 border-t border-neutral-800">
-                <div className="text-xs text-neutral-400 font-mono mb-2 flex items-center justify-between">
-                  <span>ใบระเบียนแสดงผลการเรียน (ปพ.1 ฉบับจริง 5 เทอม)</span>
-                  <span className="text-[11px] text-purple-400">คลิกเพื่อดูภาพเต็ม</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    onClick={() => onOpenImageModal('/portfolio-assets/transcript-p1.jpg', 'ใบระเบียนแสดงผลการเรียน ปพ.1 (หน้า 1 - ข้อมูลรายวิชาและเกรดเฉลี่ยสะสม GPAX 3.13)')}
-                    className="group relative rounded-lg overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[3/4] flex items-center justify-center hover:border-purple-500/50 transition-colors"
-                  >
-                    <img
-                      src="/portfolio-assets/transcript-p1.jpg"
-                      alt="ใบระเบียนแสดงผลการเรียน ปพ.1 หน้า 1"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 flex items-center justify-center transition-colors">
-                      <div className="p-1.5 rounded-full bg-neutral-900/80 border border-neutral-700 text-white">
-                        <ZoomIn className="w-3.5 h-3.5" />
-                      </div>
-                    </div>
-                    <span className="absolute bottom-1 left-2 text-[10px] font-mono text-white/90 bg-black/70 px-1 rounded">
-                      ปพ.1 ด้านหน้า
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => onOpenImageModal('/portfolio-assets/transcript-p2.jpg', 'ใบระเบียนแสดงผลการเรียน ปพ.1 (หน้า 2 - ผลการประเมินกิจกรรมและตราประทับโรงเรียน)')}
-                    className="group relative rounded-lg overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[3/4] flex items-center justify-center hover:border-purple-500/50 transition-colors"
-                  >
-                    <img
-                      src="/portfolio-assets/transcript-p2.jpg"
-                      alt="ใบระเบียนแสดงผลการเรียน ปพ.1 หน้า 2"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 flex items-center justify-center transition-colors">
-                      <div className="p-1.5 rounded-full bg-neutral-900/80 border border-neutral-700 text-white">
-                        <ZoomIn className="w-3.5 h-3.5" />
-                      </div>
-                    </div>
-                    <span className="absolute bottom-1 left-2 text-[10px] font-mono text-white/90 bg-black/70 px-1 rounded">
-                      ปพ.1 ด้านหลัง
-                    </span>
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* School Campus Photo */}
             <div className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/50">
-              <div className="aspect-[16/9] overflow-hidden relative">
+              <div className="h-36 sm:h-40 overflow-hidden relative">
                 <img
                   src="/portfolio-assets/campus-acl.png"
                   alt="โรงเรียนอัสสัมชัญลำปาง Assumption College Lampang"

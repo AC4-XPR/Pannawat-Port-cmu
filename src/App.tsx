@@ -34,7 +34,7 @@ export default function App() {
       {/* Main Content Area */}
       <main className="flex-1">
         <Hero />
-        <SOPSection onOpenImageModal={handleOpenImageModal} />
+        <SOPSection />
         <SkillsSection />
         <ProjectsSection onOpenImageModal={handleOpenImageModal} />
         <CertificatesSection onOpenImageModal={handleOpenImageModal} />
