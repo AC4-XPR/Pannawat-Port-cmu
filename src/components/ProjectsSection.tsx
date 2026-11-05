@@ -373,20 +373,21 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
 
               {/* Modal Footer Links */}
               {selectedProject.links && selectedProject.links.length > 0 && (
-                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-neutral-800">
+                <nav aria-label={`${selectedProject.title} project links`} className="flex flex-wrap items-center gap-3 pt-4 border-t border-neutral-800">
                   {selectedProject.links.map((link, lIdx) => (
                     <a
                       key={lIdx}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-neutral-800 hover:bg-neutral-700 rounded-lg transition-colors"
+                      aria-label={`${link.label} (opens in a new tab)`}
+                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-purple-400/30 bg-purple-950/30 px-4 py-2 text-sm font-medium text-purple-100 transition-colors hover:border-purple-300/70 hover:bg-purple-900/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
                     >
                       <span>{link.label}</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink aria-hidden="true" className="w-4 h-4 shrink-0" />
                     </a>
                   ))}
-                </div>
+                </nav>
               )}
             </div>
           </div>

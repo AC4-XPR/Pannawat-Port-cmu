@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SOPSection } from './components/SOPSection';
@@ -37,30 +37,15 @@ export default function App() {
     };
   }, [introActive]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const navigation = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    if (navigation?.type === 'back_forward') return;
+
     const root = document.documentElement;
-    const previousRestoration = window.history.scrollRestoration;
-    window.history.scrollRestoration = 'manual';
-
-    const returnToTop = () => {
-      const previousBehavior = root.style.scrollBehavior;
-      root.style.scrollBehavior = 'auto';
-      window.scrollTo(0, 0);
-      root.style.scrollBehavior = previousBehavior;
-    };
-    const handleVisibility = () => {
-      if (document.visibilityState === 'visible') returnToTop();
-    };
-
-    window.addEventListener('pageshow', returnToTop);
-    window.addEventListener('popstate', returnToTop);
-    document.addEventListener('visibilitychange', handleVisibility);
-    return () => {
-      window.history.scrollRestoration = previousRestoration;
-      window.removeEventListener('pageshow', returnToTop);
-      window.removeEventListener('popstate', returnToTop);
-      document.removeEventListener('visibilitychange', handleVisibility);
-    };
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = previousBehavior;
   }, []);
 
   const handleOpenImageModal = (src: string, title: string) => {

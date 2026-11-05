@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ZoomIn, ZoomOut, RotateCcw, ExternalLink } from 'lucide-react';
 
 interface ImageModalProps {
@@ -15,21 +16,25 @@ export const ImageModal: React.FC<ImageModalProps> = ({ src, title, onClose }) =
       if (e.key === 'Escape') onClose();
     };
     if (src) {
+      const previousBodyOverflow = document.body.style.overflow;
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
       setScale(1);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = previousBodyOverflow;
+      };
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
     };
   }, [src, onClose]);
 
   if (!src) return null;
 
-  return (
+  return createPortal((
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -95,5 +100,5 @@ export const ImageModal: React.FC<ImageModalProps> = ({ src, title, onClose }) =
         </div>
       </div>
     </div>
-  );
+  ), document.body);
 };

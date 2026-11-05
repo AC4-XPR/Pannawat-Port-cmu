@@ -248,8 +248,9 @@ export const PROJECTS: ProjectItem[] = [
       status: "Active Production"
     },
     links: [
-      { label: "XPR Corporation", url: "https://xprgroup.carrd.co/" },
-      { label: "GitHub Org", url: "https://github.com/xprgroupcorporation" }
+      { label: "MAS Framework website", url: "https://masframework.carrd.co/" },
+      { label: "GitHub repository", url: "https://github.com/xprgroupcorporation/MASFramework" },
+      { label: "Framework handbook", url: "https://www.canva.com/design/DAG8fwNCsE8/BDyPaMvbWKxT8HVSlVUr1Q/view" }
     ]
   },
   {
@@ -294,8 +295,8 @@ export const PROJECTS: ProjectItem[] = [
       status: "Released & Maintained"
     },
     links: [
-      { label: "Personal GitHub", url: "https://github.com/AC4-XPR" },
-      { label: "XPR Group GitHub", url: "https://github.com/xprgroupcorporation" }
+      { label: "Video demonstration", url: "https://drive.google.com/file/d/1Q2U4LHUsatihpQT8WSVghCW0Gtzsbulh/view" },
+      { label: "GitHub repository", url: "https://github.com/xprgroupcorporation/SnapCursorX" }
     ]
   },
   {
@@ -345,7 +346,11 @@ export const PROJECTS: ProjectItem[] = [
       frameworkOrEngine: "Roblox Studio · Luau · MAS Framework v2.1.0 · 3D Physics",
       result: "V1 มียอดเข้าชม 1.0M+ / ปัจจุบันพัฒนา V3 บนสถาปัตยกรรม MAS",
       status: "Alpha in Active Development"
-    }
+    },
+    links: [
+      { label: "Watch V1 trailer", url: "https://www.youtube.com/watch?v=A5jWgSJvahs" },
+      { label: "Play AOT: New Hope V3", url: "https://www.roblox.com/games/126459694544898/AOT-New-Hope-V3" }
+    ]
   },
   {
     id: "shattered-memories",
@@ -385,7 +390,10 @@ export const PROJECTS: ProjectItem[] = [
       frameworkOrEngine: "Roblox Studio · Luau · MAS Framework v2.1.0 · 3D Lighting",
       result: "ระบบ Puzzle Engine & Flashlight Mechanics แบบแยกโมดูลสมบูรณ์",
       status: "In Active Development"
-    }
+    },
+    links: [
+      { label: "Play Shattered Memories", url: "https://www.roblox.com/games/116698135406805/Shattered-Memory" }
+    ]
   },
   {
     id: "moradok-morana",
@@ -549,7 +557,10 @@ export const PROJECTS: ProjectItem[] = [
       frameworkOrEngine: "Google AI Studio · TypeScript · Modern CSS · Vercel",
       result: "พัฒนาเสร็จและ Deploy สู่สาธารณะ ใช้งานวางแผนสอบเข้ามหาวิทยาลัยจริง",
       status: "Deployed Web App"
-    }
+    },
+    links: [
+      { label: "Open web prototype", url: "https://tcas-test.vercel.app/" }
+    ]
   },
   {
     id: "thera-time",
@@ -632,7 +643,10 @@ export const PROJECTS: ProjectItem[] = [
       frameworkOrEngine: "XENO · Luau · BillboardGui · getgc() Memory Inspection",
       result: "นำความรู้ไปใช้ออกแบบ Server Validation ป้องกันการดัดแปลงใน MAS Framework",
       status: "Research Completed"
-    }
+    },
+    links: [
+      { label: "View source experiments", url: "https://github.com/AC4-XPR/EXPERIMENTS101" }
+    ]
   },
   {
     id: "epic-world",

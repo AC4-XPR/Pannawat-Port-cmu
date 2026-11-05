@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Award, ZoomIn, Calendar, ShieldCheck, ChevronRight, X, ExternalLink, Sparkles } from 'lucide-react';
 import { CERTIFICATES, CertificateItem, PROJECTS, ProjectItem } from '../data/portfolioData';
 
@@ -167,14 +168,18 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
         </div>
 
         {/* Certificate Detail & Info Pop-up Modal */}
-        {selectedCert && (
+        {selectedCert && createPortal((
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 grid place-items-center overflow-y-auto p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
             onClick={() => setSelectedCert(null)}
+            role="presentation"
           >
             <div
-              className="relative w-full max-w-2xl my-8 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-2xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] rounded-2xl bg-neutral-900 border border-neutral-800 shadow-2xl p-6 sm:p-8 space-y-5 overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="certificate-dialog-title"
             >
               {/* Close Button */}
               <button
@@ -199,7 +204,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
                   <span className="text-neutral-500">·</span>
                   <span className="text-neutral-400">{selectedCert.date}</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+                <h3 id="certificate-dialog-title" className="text-xl sm:text-2xl font-bold font-display text-white">
                   {selectedCert.title}
                 </h3>
               </div>
@@ -320,7 +325,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
               </div>
             </div>
           </div>
-        )}
+        ), document.body)}
       </div>
     </section>
   );
