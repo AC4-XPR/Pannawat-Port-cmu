@@ -1,10 +1,28 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+  font-family: "TH Sarabun New";
+  src: local("TH Sarabun New");
+  font-style: normal;
+  font-weight: 400;
+  size-adjust: 125%;
+  unicode-range: U+0E00-0E7F;
+}
+
+@font-face {
+  font-family: "TH Sarabun New";
+  src: local("TH Sarabun New Bold");
+  font-style: normal;
+  font-weight: 700;
+  size-adjust: 125%;
+  unicode-range: U+0E00-0E7F;
+}
+
 @theme {
-  --font-display: "Outfit", "Noto Sans Thai", sans-serif;
-  --font-sans: "Plus Jakarta Sans", "Noto Sans Thai", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
+  --font-sans: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
+  --font-mono: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
 }
 
 body {
@@ -244,6 +262,14 @@ html {
     linear-gradient(135deg, rgba(28, 23, 38, 0.88), rgba(20, 19, 25, 0.86)) padding-box,
     linear-gradient(145deg, #8a68c4 0%, #7041b8 30%, rgba(112, 65, 184, 0.42) 72%, rgba(112, 65, 184, 0.7) 100%) border-box;
   box-shadow: 0 0 22px rgba(112, 65, 184, 0.075), inset 0 1px 0 rgba(221, 214, 254, 0.07);
+}
+
+.motto-quote {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 .skill-chip {

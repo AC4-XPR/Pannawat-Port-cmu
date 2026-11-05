@@ -4,23 +4,23 @@ import { SKILL_CATEGORIES, PROFILE_DATA } from '../data/portfolioData';
 
 export const SkillsSection: React.FC = () => {
   return (
-    <section id="skills" className="py-20 border-b border-neutral-900 relative">
+    <section id="skills" className="py-12 border-b border-neutral-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="pb-12 border-b border-neutral-800/80">
-          <div className="text-xs font-mono text-purple-400 tracking-wider uppercase mb-1">
+        <div className="pb-6 border-b border-neutral-800/80">
+          <div className="text-[11px] sm:text-xs font-mono text-purple-400 tracking-wider uppercase mb-1">
             02. Technical Arsenal & Skills
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold font-display text-white tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-bold font-display text-white tracking-tight">
             Skills & Software Engineering
           </h2>
-          <p className="text-sm text-neutral-400 mt-1 max-w-2xl font-light">
+          <p className="text-xs sm:text-sm text-neutral-400 mt-1 max-w-2xl font-light">
             ทักษะความสามารถทางเทคนิค สถาปัตยกรรมเกม และเครื่องมือที่ใช้ในการพัฒนาซอฟต์แวร์และฮาร์ดแวร์
           </p>
         </div>
 
         {/* 4 Skill Category Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
           {SKILL_CATEGORIES.map((cat, idx) => (
             <div
               key={idx}

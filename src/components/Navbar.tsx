@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ArrowUp, Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,14 +35,11 @@ export const Navbar: React.FC = () => {
           {/* Zone 1: Brand Wordmark */}
           <a
             href="#home"
-            className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold tracking-wider text-neutral-100 hover:text-purple-400 transition-colors whitespace-nowrap shrink-0 group"
+            className="w-8 h-8 flex items-center justify-center rounded-lg border border-purple-500/30 bg-neutral-900/70 text-purple-300 hover:border-purple-400 hover:bg-purple-950/50 hover:text-white transition-colors shrink-0"
+            aria-label="Back to top"
+            title="Back to top"
           >
-            <div className="w-7 h-7 rounded-lg bg-neutral-900 border border-purple-500/30 flex items-center justify-center text-purple-400 font-mono text-xs font-bold group-hover:border-purple-400 transition-colors">
-              XPR
-            </div>
-            <span className="font-display tracking-tight font-bold text-white">
-              PANNAWAT <span className="text-purple-400 font-normal">·</span> CAMT DG
-            </span>
+            <ArrowUp className="w-4 h-4" aria-hidden="true" />
           </a>
 
           {/* Zone 2: Clean Nav Links */}

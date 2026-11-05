@@ -214,7 +214,7 @@ export const SOPSection: React.FC = () => {
                 <span>คำคมประจำใจ · Favorite Motto</span>
                 <span className="h-px bg-purple-900/60 flex-1 max-w-[120px]" />
               </div>
-              <blockquote className="text-lg sm:text-xl lg:text-2xl text-neutral-100 font-display italic font-medium leading-snug tracking-tight">
+              <blockquote className="motto-quote text-neutral-100 tracking-tight">
                 “{PROFILE_DATA.quote}”
               </blockquote>
               <div className="text-xs sm:text-sm text-neutral-400 font-mono flex flex-wrap items-center gap-x-2 gap-y-1">
