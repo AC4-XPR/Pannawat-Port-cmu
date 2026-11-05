@@ -3,10 +3,6 @@ import { ArrowUp } from 'lucide-react';
 import { PROFILE_DATA } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="py-10 bg-neutral-950 text-neutral-400 text-xs border-t border-neutral-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,14 +35,14 @@ export const Footer: React.FC = () => {
               GitHub ({PROFILE_DATA.contacts.githubPersonal})
             </a>
             <span className="text-neutral-700">·</span>
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer"
-              aria-label="Scroll to top"
+            <a
+              href="/#home"
+              className="p-1.5 rounded-full hover:text-white hover:bg-neutral-900 transition-colors"
+              aria-label="Back to top"
+              title="Back to top"
             >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
+              <ArrowUp className="w-4 h-4" />
+            </a>
           </div>
         </div>
 

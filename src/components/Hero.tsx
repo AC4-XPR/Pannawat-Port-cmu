@@ -15,19 +15,35 @@ export const Hero: React.FC = () => {
           {/* Left Column: Typographic Hierarchy */}
           <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
             {/* Target Admission Banner */}
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-[11px] font-mono text-purple-400 tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-sm bg-purple-500 inline-block" />
-                <span>Portfolio for Admission · รอบที่ 1 Portfolio</span>
+            <div className="admission-banner">
+              <div className="admission-logos" aria-hidden="true">
+                <div className="admission-logo-tile">
+                  <img src="/portfolio-assets/cmu-seal.png" alt="" />
+                </div>
+                <div className="admission-logo-tile camt-logo-tile">
+                  <svg className="camt-emblem" viewBox="0 0 48 44" fill="none">
+                    <path d="M24 2 44 13.5v17L24 42 4 30.5v-17L24 2Z" fill="#A36A36" />
+                    <path d="m24 8 14 8-14 8-14-8 14-8Z" fill="#D1A16C" />
+                    <path d="M10 20v8l14 8v-8L10 20Z" fill="#765039" />
+                    <path d="m38 20-14 8v8l14-8v-8Z" fill="#B47A42" />
+                  </svg>
+                  <strong>CAMT</strong>
+                  <small>CHIANG MAI UNIVERSITY</small>
+                </div>
               </div>
-              <div className="text-xs sm:text-sm font-medium text-neutral-300">
-                วิทยาลัยศิลปะ สื่อ และเทคโนโลยี · สาขาวิชาดิจิทัลเกม · มหาวิทยาลัยเชียงใหม่
+              <div className="admission-copy">
+                <div className="admission-eyebrow">
+                  <span className="admission-indicator" />
+                  <span>Portfolio for Admission · TCAS Round 1</span>
+                </div>
+                <h2 className="admission-program hero-topic-title">สาขาวิชาดิจิทัลเกม</h2>
+                <p>วิทยาลัยศิลปะ สื่อ และเทคโนโลยี · มหาวิทยาลัยเชียงใหม่</p>
               </div>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-1">
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-display leading-[1.1]">
+              <h1 className="hero-name text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-display leading-[1.1]">
                 PANNAWAT <br className="hidden sm:inline" />
                 <span className="animated-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-300">
                   FUNJAKSAI

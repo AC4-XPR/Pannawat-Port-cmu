@@ -33,10 +33,10 @@ export const SOPSection: React.FC = () => {
           </div>
 
           {/* Right: Profile & Education Data Cards */}
-          <div className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+          <div className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
 
             {/* Student Personal Profile Card */}
-            <div className="p-5 rounded-xl bg-neutral-900/50 border border-neutral-800 space-y-3.5">
+            <div className="h-full p-5 rounded-xl bg-neutral-900/50 border border-neutral-800 space-y-3.5">
               <div className="flex items-center justify-between pb-2.5 border-b border-neutral-800">
                 <h3 className="text-xs font-semibold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5 text-purple-400" />
@@ -74,7 +74,7 @@ export const SOPSection: React.FC = () => {
             </div>
 
             {/* Education History Card */}
-            <div className="p-5 rounded-xl bg-neutral-900/50 border border-neutral-800 space-y-3.5">
+            <div className="h-full p-5 rounded-xl bg-neutral-900/50 border border-neutral-800 space-y-3.5">
               <div className="flex items-center justify-between pb-2.5 border-b border-neutral-800">
                 <h3 className="text-xs font-semibold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
                   <GraduationCap className="w-4 h-4 text-purple-400" />
@@ -117,8 +117,8 @@ export const SOPSection: React.FC = () => {
             </div>
 
             {/* School Campus Photo */}
-            <div className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/50">
-              <div className="h-36 sm:h-40 overflow-hidden relative">
+            <div className="h-full rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/50 flex flex-col">
+              <div className="relative flex-1 min-h-36 sm:min-h-40 overflow-hidden">
                 <img
                   src="/portfolio-assets/campus-acl.png"
                   alt="โรงเรียนอัสสัมชัญลำปาง Assumption College Lampang"

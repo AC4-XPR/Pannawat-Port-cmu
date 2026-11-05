@@ -99,7 +99,159 @@ html {
   transform: translate(-50%, -50%) rotate(-9deg);
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 36px rgba(139, 92, 246, 0.12));
-  animation: seal-float 30s ease-in-out infinite alternate;
+  clip-path: inset(50% 50% 50% 50%);
+  animation: seal-reveal 2.4s cubic-bezier(0.2, 0.7, 0.15, 1) both, seal-float 30s ease-in-out 2.4s infinite alternate;
+}
+
+.seal-trace {
+  position: absolute;
+  top: 54%;
+  left: 55%;
+  width: min(48vw, 40rem);
+  aspect-ratio: 1;
+  overflow: visible;
+  transform: translate(-50%, -50%) rotate(-9deg);
+  opacity: 0.82;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 8px rgba(196, 181, 253, 0.65));
+}
+
+.trace-path {
+  stroke: #c4b5fd;
+  stroke-width: 0.38;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trace-run 1.55s cubic-bezier(0.25, 0.7, 0.25, 1) forwards;
+}
+
+.trace-node {
+  fill: #e9d5ff;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-flash 1.7s ease-out forwards;
+}
+
+.trace-delay-1 { animation-delay: 0.02s; }
+.trace-delay-2 { animation-delay: 0.12s; }
+.trace-delay-3 { animation-delay: 0.21s; }
+.trace-delay-4 { animation-delay: 0.3s; }
+.trace-delay-5 { animation-delay: 0.39s; }
+.trace-delay-6 { animation-delay: 0.48s; }
+.trace-delay-7 { animation-delay: 0.57s; }
+.trace-delay-8 { animation-delay: 0.66s; }
+
+.admission-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.85rem;
+  overflow: hidden;
+  border: 1px solid rgba(193, 145, 83, 0.42);
+  border-radius: 1rem;
+  background: linear-gradient(110deg, rgba(25, 18, 14, 0.94), rgba(15, 13, 14, 0.94));
+  box-shadow: inset 0 1px rgba(255, 240, 212, 0.04), 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.admission-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(115deg, transparent 48%, rgba(193, 145, 83, 0.14) 49%, transparent 50%),
+    linear-gradient(0deg, transparent 94%, rgba(193, 145, 83, 0.16) 95%, transparent 96%);
+  background-size: 74px 100%, 100% 23px;
+}
+
+.admission-logos {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+}
+
+.admission-logo-tile {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: 0.8rem;
+  background: linear-gradient(145deg, #fff, #f2f0ed);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.admission-logo-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.camt-logo-tile {
+  flex-direction: column;
+  gap: 0.02rem;
+  color: #4f3c2e;
+}
+
+.camt-emblem { width: 1.7rem; height: 1.55rem; }
+.camt-logo-tile strong { font-size: 0.7rem; line-height: 0.8; letter-spacing: 0.04em; }
+.camt-logo-tile small { font-size: 0.23rem; line-height: 1; letter-spacing: 0.04em; }
+
+.admission-copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(193, 145, 83, 0.34);
+}
+
+.admission-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d6a856;
+  font: 600 0.59rem/1.2 var(--font-mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.admission-indicator {
+  width: 0.38rem;
+  height: 0.38rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #d6a856;
+  box-shadow: 0 0 12px rgba(214, 168, 86, 0.7);
+}
+
+.admission-program {
+  margin-top: 0.42rem;
+  color: #f5e6c9;
+  font-size: clamp(0.95rem, 1.7vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.admission-copy p { margin-top: 0.18rem; color: #b9aea3; font-size: 0.69rem; line-height: 1.5; }
+
+.hero-name {
+  transform-origin: left center;
+  animation: hero-grow 7s ease-in-out 0.2s infinite;
+}
+
+.hero-topic-title {
+  display: inline-block;
+  transform-origin: left center;
+  animation: hero-grow 6.5s ease-in-out 0.8s infinite;
 }
 
 .ambient-particle {
@@ -186,6 +338,32 @@ html {
   to { transform: translate(-48%, -52%) rotate(-6deg) scale(1.03); }
 }
 
+@keyframes seal-reveal {
+  0% { clip-path: inset(49% 49% 49% 49%); opacity: 0; }
+  24% { clip-path: inset(38% 41% 38% 41%); opacity: 0.1; }
+  57% { clip-path: inset(18% 20% 18% 20%); opacity: 0.08; }
+  82% { clip-path: inset(0 6%); opacity: 0.05; }
+  100% { clip-path: inset(0); opacity: 0.05; }
+}
+
+@keyframes trace-run {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  15% { opacity: 0.9; }
+  75% { stroke-dashoffset: 0; opacity: 0.78; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes node-flash {
+  0%, 55% { opacity: 0; transform: scale(0.2); }
+  70% { opacity: 0.95; transform: scale(1.5); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+@keyframes hero-grow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
 @keyframes particle-drift {
   from { transform: translate3d(0, 0, 0); opacity: 0.18; }
   to { transform: translate3d(12px, -24px, 0); opacity: 0.62; }
@@ -209,7 +387,19 @@ html {
     width: 72vw;
   }
 
+  .seal-trace {
+    left: 50%;
+    top: 58%;
+    width: 72vw;
+  }
+
   .ambient-orb { width: 68vw; filter: blur(76px); }
+
+  .admission-banner { gap: 0.65rem; padding: 0.65rem; }
+  .admission-logo-tile { width: 3.25rem; height: 3.25rem; border-radius: 0.65rem; }
+  .admission-copy { padding-left: 0.65rem; }
+  .admission-eyebrow { font-size: 0.48rem; letter-spacing: 0.12em; }
+  .admission-copy p { font-size: 0.62rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
