@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
               <div className="aspect-[4/3] overflow-hidden bg-neutral-950 relative">
                 <img
                   src="/portfolio-assets/profile-photo.jpg"
-                  alt="ปัณณวัฒน์ ฝั้นจักสาย (Auto) ขณะแข่งขัน Global Game Jam 2026"
+                  alt="ปัณณวัฒน์ ฝั้นจักสาย (Andrews / Andy) ขณะแข่งขัน Global Game Jam 2026"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />

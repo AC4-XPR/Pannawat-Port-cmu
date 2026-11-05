@@ -46,21 +46,6 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
               </p>
             ))}
 
-            {/* Tanya Quote Card / คำคมประจำใจ */}
-            <div className="p-4 sm:p-5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-3.5 mt-5">
-              <Quote className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
-              <div className="space-y-1.5 flex-1">
-                <div className="text-[11px] font-mono text-purple-400 uppercase tracking-wider font-semibold">
-                  คำคมประจำใจ · Favorite Motto
-                </div>
-                <blockquote className="text-xs sm:text-sm text-neutral-200 italic font-display">
-                  “{PROFILE_DATA.quote}”
-                </blockquote>
-                <div className="text-[11px] text-neutral-400 font-mono">
-                  — {PROFILE_DATA.quoteAuthor} ({PROFILE_DATA.quoteSource})
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Right: Profile & Education Data Cards */}
@@ -209,6 +194,30 @@ export const SOPSection: React.FC<SOPSectionProps> = ({ onOpenImageModal }) => {
                   <School className="w-3.5 h-3.5 text-purple-400" />
                   <span>โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Full-Width Favorite Motto / คำคมประจำใจ Banner (Covers both halves of section, ~50% larger typography) */}
+        <div className="mt-8 sm:mt-10 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-neutral-900/90 via-purple-950/25 to-neutral-900/90 border border-neutral-800/80 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 sm:gap-6 relative z-10">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-purple-950/70 border border-purple-800/50 text-purple-400 shrink-0 shadow-inner shadow-purple-900/40">
+              <Quote className="w-7 h-7 sm:w-8 sm:h-8" />
+            </div>
+            <div className="space-y-2.5 flex-1">
+              <div className="text-xs font-mono text-purple-400 uppercase tracking-widest font-semibold flex items-center gap-2">
+                <span>คำคมประจำใจ · Favorite Motto</span>
+                <span className="h-px bg-purple-900/60 flex-1 max-w-[120px]" />
+              </div>
+              <blockquote className="text-lg sm:text-xl lg:text-2xl text-neutral-100 font-display italic font-medium leading-snug tracking-tight">
+                “{PROFILE_DATA.quote}”
+              </blockquote>
+              <div className="text-xs sm:text-sm text-neutral-400 font-mono flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>— <strong className="text-neutral-200 font-medium">{PROFILE_DATA.quoteAuthor}</strong></span>
+                <span className="text-neutral-600">·</span>
+                <span className="text-neutral-500">{PROFILE_DATA.quoteSource}</span>
               </div>
             </div>
           </div>

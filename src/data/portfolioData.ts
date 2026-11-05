@@ -63,8 +63,8 @@ export interface ActivityItem {
 export const PROFILE_DATA = {
   name: "นาย ปัณณวัฒน์ ฝั้นจักสาย",
   nameEn: "Pannawat Funjaksai",
-  nickname: "ออโต้",
-  nicknameEn: "Auto",
+  nickname: "แอนดรูว์ / แอนดี้",
+  nicknameEn: "Andrews / Andy",
   tagline: "Game Developer · Software Architect · System Designer",
   bioHeadline: "Architecting modular game systems, visual workflow engines, and scalable digital experiences.",
   targetUniversity: "มหาวิทยาลัยเชียงใหม่ (Chiang Mai University)",
