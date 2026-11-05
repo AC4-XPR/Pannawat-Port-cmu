@@ -210,46 +210,46 @@ export const PROJECTS: ProjectItem[] = [
     id: "xpr-group-corporation",
     diagram: "xpr-group",
     title: "XPR Group Corporation™",
-    subtitle: "A connected digital venture · Founded 28 July 2024",
-    tagline: "An evolving venture map connecting digital products, game development, collaboration, and future initiatives.",
+    subtitle: "เครือข่ายธุรกิจดิจิทัล · ก่อตั้ง 28 กรกฎาคม 2567",
+    tagline: "แผนผังองค์กรที่เชื่อมโยงการสร้างผลิตภัณฑ์ดิจิทัล การพัฒนาเกม ความร่วมมือ และโครงการในอนาคต",
     category: "tool",
-    year: "2020–Present",
-    highlightBadge: "Founder · Organization Design",
-    role: ["Founder", "Organization Designer", "Product & Studio Lead"],
-    techStack: ["XPR Studio", "Digital Products", "Game Development", "Collaboration"],
+    year: "2020–ปัจจุบัน",
+    highlightBadge: "ผู้ก่อตั้ง · วางโครงสร้างองค์กร",
+    role: ["ผู้ก่อตั้ง", "ออกแบบโครงสร้างองค์กร", "ดูแลผลิตภัณฑ์และสตูดิโอ"],
+    techStack: ["XPR Studio", "ผลิตภัณฑ์ดิจิทัล", "พัฒนาเกม", "ความร่วมมือ"],
     thumbnail: "/portfolio-assets/xpr-core-values.png",
     gallery: ["/portfolio-assets/xpr-core-values.png"],
     description: [
-      "XPR Group Corporation™ is my long-term organizational vision for connecting independent digital ventures, product creation, and people who want to build together. Its structure is planned as four parts; Alpha and Beta are the first areas I am developing.",
-      "Alpha focuses on games and digital products through XPR Studio. Beta focuses on developing people and building partnerships. Omega Capital and Delta Ventures are future initiatives, while Nest Camp is a small experimental learning and collaboration network planned for a future rebrand.",
-      "XPR Studio began in 2020 as an online business, software, game, and media studio. Its current work includes games and tools such as AOT: New Hope, MAS Framework, and SnapCursorX. The map represents a direction in progress, with planned branches clearly marked as future work."
+      "XPR Group Corporation™ คือแนวคิดการพัฒนาองค์กรในระยะยาว เพื่อเชื่อมโยงธุรกิจดิจิทัล การสร้างผลิตภัณฑ์ และผู้คนที่ต้องการลงมือสร้างสิ่งต่าง ๆ ร่วมกัน โดยวางโครงสร้างไว้ 4 ส่วน และเริ่มพัฒนา Alpha กับ Beta เป็นลำดับแรก",
+      "Alpha มุ่งเน้นการสร้างเกมและผลิตภัณฑ์ดิจิทัลผ่าน XPR Studio ส่วน Beta มุ่งเน้นการพัฒนาบุคลากรและสร้างความร่วมมือ Omega Capital และ Delta Ventures เป็นโครงการในอนาคต ขณะที่ Nest Camp เป็นเครือข่ายทดลองด้านการเรียนรู้และทำงานร่วมกัน ซึ่งมีแผนปรับแบรนด์ต่อไป",
+      "XPR Studio เริ่มต้นในปี 2020 ในฐานะสตูดิโอธุรกิจออนไลน์ ซอฟต์แวร์ เกม และสื่อ ผลงานที่กำลังพัฒนาประกอบด้วย AOT: New Hope, MAS Framework และ SnapCursorX แผนผังนี้แสดงทิศทางที่กำลังต่อยอด โดยระบุส่วนที่ยังเป็นแผนงานในอนาคตไว้อย่างชัดเจน"
     ],
     keyFeatures: [
-      "Alpha Digital: games and digital products developed through XPR Studio",
-      "Beta Management: people development and partnership building",
-      "Nest Camp: experimental learning and collaboration network",
-      "Omega Capital and Delta Ventures: planned future initiatives",
-      "XPR Studio: game, software, and media work, including MAS Framework, SnapCursorX, and AOT: New Hope"
+      "Alpha Digital: สร้างเกมและผลิตภัณฑ์ดิจิทัลผ่าน XPR Studio",
+      "Beta Management: พัฒนาบุคลากรและสร้างความร่วมมือ",
+      "Nest Camp: เครือข่ายทดลองด้านการเรียนรู้และการทำงานร่วมกัน",
+      "Omega Capital และ Delta Ventures: โครงการที่วางแผนไว้สำหรับอนาคต",
+      "XPR Studio: พัฒนาเกม ซอฟต์แวร์ และสื่อ เช่น MAS Framework, SnapCursorX และ AOT: New Hope"
     ],
     impact: [
-      "Started XPR Studio in 2020 and continue to develop its games, software, and media work",
-      "Sets a long-term direction for moving from solo creation toward teams and collaboration"
+      "เริ่มต้น XPR Studio ในปี 2020 และพัฒนาผลงานเกม ซอฟต์แวร์ และสื่ออย่างต่อเนื่อง",
+      "กำหนดทิศทางระยะยาวจากการสร้างผลงานคนเดียว สู่การทำงานเป็นทีมและร่วมมือกับผู้อื่น"
     ],
     specs: {
       projectName: "XPR Group Corporation™",
-      roles: ["Founder", "Organization Designer", "Product & Studio Lead"],
-      team: "Founder-led vision; built through future collaboration",
-      duration: "XPR Studio since 2020 · XPR Group founded 28 July 2024",
-      concept: "A four-part digital venture vision connecting products, game creation, partnerships, and future initiatives",
+      roles: ["ผู้ก่อตั้ง", "ออกแบบโครงสร้างองค์กร", "ดูแลผลิตภัณฑ์และสตูดิโอ"],
+      team: "แนวคิดริเริ่มโดยผู้ก่อตั้ง และมุ่งเติบโตผ่านความร่วมมือในอนาคต",
+      duration: "XPR Studio ตั้งแต่ปี 2020 · XPR Group ก่อตั้ง 28 กรกฎาคม 2567",
+      concept: "แนวคิดธุรกิจดิจิทัล 4 ส่วน เชื่อมโยงผลิตภัณฑ์ การสร้างเกม ความร่วมมือ และโครงการในอนาคต",
       frameworkOrEngine: "Alpha Digital · Beta Management · Omega Capital · Delta Ventures",
-      result: "Active foundation: XPR Studio, Nest Camp experiment, and ongoing digital products",
-      status: "Evolving Organization"
+      result: "เริ่มต้นจาก XPR Studio, โครงการทดลอง Nest Camp และการพัฒนาผลิตภัณฑ์ดิจิทัลอย่างต่อเนื่อง",
+      status: "องค์กรที่กำลังต่อยอด"
     },
     links: [
-      { label: "XPR Group website", url: "https://xprgroup.carrd.co/" },
-      { label: "XPR Group GitHub", url: "https://github.com/xprgroupcorporation" },
-      { label: "XPR Studio YouTube", url: "https://www.youtube.com/@XPR_Studio" },
-      { label: "XPR Studio Discord", url: "https://discord.gg/YqbkxwRKgW" }
+      { label: "เว็บไซต์ XPR Group", url: "https://xprgroup.carrd.co/" },
+      { label: "GitHub ของ XPR Group", url: "https://github.com/xprgroupcorporation" },
+      { label: "YouTube ของ XPR Studio", url: "https://www.youtube.com/@XPR_Studio" },
+      { label: "Discord ของ XPR Studio", url: "https://discord.gg/YqbkxwRKgW" }
     ]
   },
   {

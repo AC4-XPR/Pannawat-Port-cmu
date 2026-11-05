@@ -215,7 +215,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-purple-400">
                   <span>{selectedProject.year}</span>
                   <span>·</span>
-                  <span>{selectedProject.category.toUpperCase()}</span>
+                  <span>{selectedProject.diagram === 'xpr-group' ? 'องค์กรและธุรกิจดิจิทัล' : selectedProject.category.toUpperCase()}</span>
                   {selectedProject.highlightBadge && (
                     <>
                       <span>·</span>

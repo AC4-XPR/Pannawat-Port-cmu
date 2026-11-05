@@ -13,34 +13,34 @@ const branches: FlowNode[] = [
   {
     id: 'alpha',
     title: 'Alpha Digital',
-    category: 'MAKE',
-    detail: 'Games and digital products created through XPR Studio.',
+    category: 'สร้างสรรค์',
+    detail: 'มุ่งเน้นการสร้างเกมและผลิตภัณฑ์ดิจิทัลผ่าน XPR Studio',
     tone: 'xpr-flow-alpha',
-    status: 'ACTIVE FOCUS'
+    status: 'โฟกัสปัจจุบัน'
   },
   {
     id: 'beta',
     title: 'Beta Management',
-    category: 'GROW',
-    detail: 'People development, mentorship, and partnership building.',
+    category: 'พัฒนาคน',
+    detail: 'มุ่งเน้นการพัฒนาบุคลากร การให้คำแนะนำ และการสร้างความร่วมมือ',
     tone: 'xpr-flow-beta',
-    status: 'DEVELOPING'
+    status: 'กำลังพัฒนา'
   },
   {
     id: 'omega',
     title: 'Omega Capital',
-    category: 'INVEST',
-    detail: 'A future initiative for supporting the ventures as they grow.',
+    category: 'การลงทุน',
+    detail: 'SOON',
     tone: 'xpr-flow-future',
-    status: 'PLANNED'
+    status: 'วางแผนไว้'
   },
   {
     id: 'delta',
     title: 'Delta Ventures',
-    category: 'BUILD',
-    detail: 'A future venture branch for new opportunities and experiments.',
+    category: 'ธุรกิจใหม่',
+    detail: 'SOON',
     tone: 'xpr-flow-future',
-    status: 'PLANNED'
+    status: 'วางแผนไว้'
   }
 ];
 
@@ -48,18 +48,18 @@ const branchesAndStudios: FlowNode[] = [
   {
     id: 'nest-camp',
     title: 'Nest Camp',
-    category: 'LEARN TOGETHER',
-    detail: 'A small experimental learning and collaboration network, planned for a future rebrand.',
+    category: 'เรียนรู้ร่วมกัน',
+    detail: 'เครือข่ายทดลองขนาดเล็กสำหรับการเรียนรู้และทำงานร่วมกัน โดยมีแผนปรับแบรนด์ในอนาคต',
     tone: 'xpr-flow-camp',
-    status: 'EXPERIMENT'
+    status: 'โครงการทดลอง'
   },
   {
     id: 'xpr-studio',
     title: 'XPR Studio',
-    category: 'GAMES · SOFTWARE · MEDIA',
-    detail: 'The active creative studio, founded 4 September 2020, building online products, software, games, and media.',
+    category: 'เกม · ซอฟต์แวร์ · สื่อ',
+    detail: 'สตูดิโอสร้างสรรค์ที่ก่อตั้งเมื่อ 4 กันยายน 2020 พัฒนาผลิตภัณฑ์ออนไลน์ ซอฟต์แวร์ เกม และสื่อ',
     tone: 'xpr-flow-studio',
-    status: 'FOUNDED 2020'
+    status: 'ก่อตั้งปี 2020'
   }
 ];
 
@@ -67,22 +67,22 @@ const outputs: FlowNode[] = [
   {
     id: 'mas',
     title: 'MAS Framework',
-    category: 'GAME ARCHITECTURE',
-    detail: 'A modular software architecture framework for organizing Roblox game systems.',
+    category: 'สถาปัตยกรรมเกม',
+    detail: 'เฟรมเวิร์กสถาปัตยกรรมซอฟต์แวร์แบบโมดูลาร์ สำหรับจัดโครงสร้างระบบเกม Roblox',
     tone: 'xpr-flow-output'
   },
   {
     id: 'snapcursorx',
     title: 'SnapCursorX',
-    category: 'WINDOWS SOFTWARE',
-    detail: 'A visual desktop workflow utility built with Python and C++.',
+    category: 'ซอฟต์แวร์ Windows',
+    detail: 'โปรแกรมเดสก์ท็อปสำหรับสร้างเวิร์กโฟลว์แบบภาพ พัฒนาด้วย Python และ C++',
     tone: 'xpr-flow-output'
   },
   {
     id: 'aot',
     title: 'AOT: New Hope',
-    category: 'GAME DEVELOPMENT',
-    detail: 'An action RPG project developed by XPR Studio across multiple versions.',
+    category: 'พัฒนาเกม',
+    detail: 'โปรเจกต์เกมแอ็กชัน RPG ที่ XPR Studio พัฒนาต่อเนื่องหลายเวอร์ชัน',
     tone: 'xpr-flow-output'
   }
 ];
@@ -106,7 +106,7 @@ const FlowCard: React.FC<{ node: FlowNode; compact?: boolean }> = ({ node, compa
 };
 
 export const XprGroupFlowDiagram: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
-  <div className={`xpr-flow ${compact ? 'xpr-flow-compact' : ''}`} aria-label="Interactive XPR Group organization and project flow diagram">
+  <div className={`xpr-flow ${compact ? 'xpr-flow-compact' : ''}`} aria-label="แผนผังองค์กรและผลงานของ XPR Group">
     <svg className="xpr-flow-lines" viewBox="0 0 1000 660" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id={compact ? 'xpr-flow-gradient-card' : 'xpr-flow-gradient-detail'} x1="0" x2="1">
@@ -129,7 +129,7 @@ export const XprGroupFlowDiagram: React.FC<{ compact?: boolean }> = ({ compact =
     </svg>
 
     <div className="xpr-flow-parent">
-      <span className="xpr-flow-kicker">VENTURE MAP · FOUNDED 28 JULY 2024</span>
+      <span className="xpr-flow-kicker">แผนผังองค์กร · ก่อตั้ง 28 กรกฎาคม 2567</span>
       <strong>XPR Group Corporation™</strong>
       <span>Exotic <i>•</i> Passionate <i>•</i> Revolutionize</span>
     </div>
@@ -147,6 +147,6 @@ export const XprGroupFlowDiagram: React.FC<{ compact?: boolean }> = ({ compact =
       {outputs.map((node) => <FlowCard key={node.id} node={node} compact={compact} />)}
     </div>
 
-    <p className="xpr-flow-footnote">Hover or focus a node to explore · Planned branches are marked clearly</p>
+    <p className="xpr-flow-footnote">ชี้เมาส์หรือโฟกัสที่หัวข้อเพื่อดูข้อมูล · ระบุส่วนที่วางแผนไว้ชัดเจน</p>
   </div>
 );
