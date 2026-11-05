@@ -93,9 +93,9 @@ html {
   position: absolute;
   top: 54%;
   left: 55%;
-  width: min(76vw, 58rem);
+  width: min(48vw, 40rem);
   max-width: none;
-  opacity: 0.2; /* 80% transparent watermark */
+  opacity: 0.05; /* 95% transparent watermark */
   transform: translate(-50%, -50%) rotate(-9deg);
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 36px rgba(139, 92, 246, 0.12));
@@ -206,7 +206,7 @@ html {
   .seal-watermark {
     left: 50%;
     top: 58%;
-    width: 112vw;
+    width: 72vw;
   }
 
   .ambient-orb { width: 68vw; filter: blur(76px); }
