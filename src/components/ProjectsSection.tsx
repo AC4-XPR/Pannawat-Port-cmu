@@ -216,7 +216,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                   {selectedProject.highlightBadge && (
                     <>
                       <span>·</span>
-                      <span className="text-amber-400">{selectedProject.highlightBadge}</span>
+                      <span className="text-purple-300">{selectedProject.highlightBadge}</span>
                     </>
                   )}
                 </div>

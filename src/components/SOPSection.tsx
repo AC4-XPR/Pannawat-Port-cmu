@@ -2,6 +2,66 @@ import React from 'react';
 import { Quote, GraduationCap, School, User } from 'lucide-react';
 import { PROFILE_DATA, SOP_TEXT, EDUCATION_DATA } from '../data/portfolioData';
 
+const SOP_HIGHLIGHTS: Record<string, 'purple' | 'white'> = {
+  'มัธยมศึกษาปีที่ 1': 'purple',
+  'Epic World': 'purple',
+  'Hard-code': 'purple',
+  'Inventory': 'purple',
+  '3,000 บรรทัด': 'purple',
+  'AOT: New Hope': 'purple',
+  'ระบบต่อสู้': 'purple',
+  'อุปกรณ์เคลื่อนที่สามมิติ': 'purple',
+  'ชุมชน Discord': 'purple',
+  'เริ่มต้นและสร้างผลงานใหม่อีกครั้ง': 'white',
+  'MAS Framework': 'purple',
+  'เวอร์ชัน 2.1.0': 'purple',
+  'SnapCursorX': 'purple',
+  'Python และ C++': 'purple',
+  'การทำงานเป็นทีม': 'white',
+  'Digital Game': 'purple',
+  'มหาวิทยาลัยเชียงใหม่': 'purple',
+  'การออกแบบเกม': 'purple',
+  'ประสบการณ์ให้ผู้เล่น': 'white',
+  'ทำโปรเจกต์ร่วมกับผู้อื่น': 'white',
+  'XPR Group Corporation™': 'purple',
+  'Alpha': 'purple',
+  'Beta': 'purple',
+  'Game Engine': 'purple',
+  'แพลตฟอร์มที่เปิดโอกาสให้ผู้สร้างสามารถพัฒนาและเผยแพร่เกมได้อย่างอิสระ': 'purple',
+  'Exotic • Passionate • Revolutionize': 'purple',
+};
+
+const renderHighlightedParagraph = (paragraph: string, paragraphIndex: number) => {
+  const highlights = Object.entries(SOP_HIGHLIGHTS);
+  const parts: React.ReactNode[] = [];
+  let cursor = 0;
+  let key = 0;
+
+  while (cursor < paragraph.length) {
+    let next: { phrase: string; tone: 'purple' | 'white'; index: number } | undefined;
+    for (const [phrase, tone] of highlights) {
+      const index = paragraph.indexOf(phrase, cursor);
+      if (index !== -1 && (!next || index < next.index || (index === next.index && phrase.length > next.phrase.length))) {
+        next = { phrase, tone, index };
+      }
+    }
+
+    if (!next) {
+      parts.push(paragraph.slice(cursor));
+      break;
+    }
+    if (next.index > cursor) parts.push(paragraph.slice(cursor, next.index));
+    parts.push(
+      <strong key={`${paragraphIndex}-${key++}`} className={next.tone === 'purple' ? 'font-semibold text-purple-300' : 'font-semibold text-white'}>
+        {next.phrase}
+      </strong>,
+    );
+    cursor = next.index + next.phrase.length;
+  }
+
+  return parts;
+};
+
 export const SOPSection: React.FC = () => {
   return (
     <section id="sop" className="py-16 sm:py-20 border-b border-neutral-900 relative">
@@ -24,10 +84,10 @@ export const SOPSection: React.FC = () => {
         {/* Content Layout: 12-column grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-8">
           {/* The full statement stays in one card; the motto remains separate below. */}
-          <div className="lg:col-span-12 p-5 sm:p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-200 text-xs sm:text-sm leading-relaxed">
+          <div className="sop-content-panel lg:col-span-12 p-5 sm:p-6 rounded-2xl text-neutral-200 text-xs sm:text-sm leading-relaxed">
             <div className="space-y-4">
               {SOP_TEXT.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index}>{renderHighlightedParagraph(paragraph, index)}</p>
               ))}
             </div>
           </div>
@@ -45,30 +105,37 @@ export const SOPSection: React.FC = () => {
                 <span className="text-[11px] font-mono text-neutral-400">Personal Profile</span>
               </div>
 
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between py-1 border-b border-neutral-800/40">
-                  <span className="text-neutral-400">ชื่อ & สกุล:</span>
-                  <span className="text-neutral-200 font-medium text-right">{PROFILE_DATA.name}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-neutral-800/40">
-                  <span className="text-neutral-400">ชื่อเล่น:</span>
-                  <span className="text-purple-300 font-medium">{PROFILE_DATA.nickname} ({PROFILE_DATA.nicknameEn})</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-neutral-800/40">
-                  <span className="text-neutral-400">วันเกิด:</span>
-                  <span className="text-neutral-200">{PROFILE_DATA.birthDate}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-neutral-800/40">
-                  <span className="text-neutral-400">โรงเรียน:</span>
-                  <span className="text-neutral-200 text-right">{PROFILE_DATA.school}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-neutral-800/40">
-                  <span className="text-neutral-400">แผนการเรียน:</span>
-                  <span className="text-neutral-200">{PROFILE_DATA.schoolTrack}</span>
-                </div>
-                <div className="flex justify-between py-1">
-                  <span className="text-neutral-400">บุคลิกภาพ (MBTI):</span>
-                  <span className="text-purple-400 font-mono font-semibold">{PROFILE_DATA.mbti}</span>
+              <div className="flex items-start gap-3">
+                <img
+                  src="/portfolio-assets/andy-studio-portrait.jpg"
+                  alt="ภาพถ่ายประจำตัวของปัณณวัฒน์ ฝั้นจักสาย"
+                  className="w-16 h-20 shrink-0 rounded-lg border border-purple-400/40 object-cover object-top shadow-md shadow-purple-950/30"
+                />
+                <div className="min-w-0 flex-1 space-y-2 text-xs">
+                  <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
+                    <span className="text-neutral-400">ชื่อ & สกุล:</span>
+                    <span className="text-neutral-200 font-medium text-right">{PROFILE_DATA.name}</span>
+                  </div>
+                  <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
+                    <span className="text-neutral-400">ชื่อเล่น:</span>
+                    <span className="text-purple-300 font-medium">{PROFILE_DATA.nickname} ({PROFILE_DATA.nicknameEn})</span>
+                  </div>
+                  <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
+                    <span className="text-neutral-400">วันเกิด:</span>
+                    <span className="text-neutral-200">{PROFILE_DATA.birthDate}</span>
+                  </div>
+                  <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
+                    <span className="text-neutral-400">โรงเรียน:</span>
+                    <span className="text-neutral-200 text-right">{PROFILE_DATA.school}</span>
+                  </div>
+                  <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
+                    <span className="text-neutral-400">แผนการเรียน:</span>
+                    <span className="text-neutral-200">{PROFILE_DATA.schoolTrack}</span>
+                  </div>
+                  <div className="flex justify-between gap-2 py-1">
+                    <span className="text-neutral-400">บุคลิกภาพ (MBTI):</span>
+                    <span className="text-purple-400 font-mono font-semibold">{PROFILE_DATA.mbti}</span>
+                  </div>
                 </div>
               </div>
             </div>

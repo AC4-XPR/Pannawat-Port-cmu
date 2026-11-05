@@ -46,17 +46,21 @@ export const SkillsSection: React.FC = () => {
                 <span className="text-xs font-mono text-neutral-400">0{cat.skills.length}</span>
               </div>
 
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="space-y-1">
-                    <div className="flex items-center justify-between text-xs sm:text-sm">
-                      <span className="font-medium text-neutral-200">{skill.name}</span>
-                      <span className="text-xs font-mono text-purple-400">{skill.level}</span>
-                    </div>
-                    <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                      {skill.desc}
-                    </p>
-                  </div>
+                  <button
+                    key={sIdx}
+                    type="button"
+                    className="skill-chip"
+                    aria-describedby={`skill-detail-${idx}-${sIdx}`}
+                  >
+                    <span>{skill.name}</span>
+                    <span className="skill-chip-mark" aria-hidden="true">+</span>
+                    <span id={`skill-detail-${idx}-${sIdx}`} role="tooltip" className="skill-chip-detail">
+                      <span className="skill-chip-level">{skill.level}</span>
+                      <span className="block mt-1 text-xs font-sans font-normal leading-relaxed text-neutral-300">{skill.desc}</span>
+                    </span>
+                  </button>
                 ))}
               </div>
             </div>

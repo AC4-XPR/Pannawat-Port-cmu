@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
     <section id="home" className="relative pt-16 sm:pt-20 pb-6 sm:pb-8 overflow-hidden border-b border-neutral-900">
       {/* Background radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-purple-900/15 blur-[100px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[350px] h-[250px] bg-blue-900/10 blur-[90px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-[350px] h-[250px] bg-violet-900/15 blur-[90px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Split Screen Hero: 2-column layout */}
@@ -131,7 +131,7 @@ export const Hero: React.FC = () => {
               14+
             </div>
             <div className="text-[11px] sm:text-xs text-neutral-400">
-              เกียรติบัตรและหลักฐานผลงาน
+              เกียรติบัตร การแข่งขัน และหลักฐานผลงาน
             </div>
           </div>
           <div className="space-y-0.5">
