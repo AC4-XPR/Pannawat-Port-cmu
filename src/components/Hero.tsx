@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
                 </span>
               </h1>
               <p className="text-base sm:text-lg font-medium text-neutral-200">
-                นาย ปัณณวัฒน์ ฝั้นจักสาย <span className="text-purple-400">({PROFILE_DATA.nicknameEn} / {PROFILE_DATA.nickname})</span>
+                นาย ปัณณวัฒน์ ฝั้นจักสาย
               </p>
             </div>
 
