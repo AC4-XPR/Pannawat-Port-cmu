@@ -1,28 +1,10 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
-  font-family: "TH Sarabun New";
-  src: local("TH Sarabun New");
-  font-style: normal;
-  font-weight: 400;
-  size-adjust: 125%;
-  unicode-range: U+0E00-0E7F;
-}
-
-@font-face {
-  font-family: "TH Sarabun New";
-  src: local("TH Sarabun New Bold");
-  font-style: normal;
-  font-weight: 700;
-  size-adjust: 125%;
-  unicode-range: U+0E00-0E7F;
-}
-
 @theme {
-  --font-display: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
-  --font-sans: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
-  --font-mono: "Times New Roman", "TH Sarabun New", "Sarabun", serif;
+  --font-display: "Times New Roman", "Noto Sans Thai", serif;
+  --font-sans: "Times New Roman", "Noto Sans Thai", serif;
+  --font-mono: "Times New Roman", "Noto Sans Thai", serif;
 }
 
 body {
@@ -118,7 +100,7 @@ html {
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 36px rgba(139, 92, 246, 0.12));
   clip-path: inset(50% 50% 50% 50%);
-  animation: seal-reveal 2.4s cubic-bezier(0.2, 0.7, 0.15, 1) both, seal-float 30s ease-in-out 3s infinite alternate;
+  animation: seal-reveal 2.4s cubic-bezier(0.2, 0.7, 0.15, 1) both;
 }
 
 .seal-trace {
@@ -565,11 +547,6 @@ html {
   to { transform: translate3d(8%, 7%, 0) scale(1.08); }
 }
 
-@keyframes seal-float {
-  from { transform: translate(-50%, -50%) rotate(-9deg) scale(0.98); }
-  to { transform: translate(-48%, -52%) rotate(-6deg) scale(1.03); }
-}
-
 @keyframes seal-reveal {
   0% { clip-path: inset(49% 49% 49% 49%); opacity: 0; }
   24% { clip-path: inset(38% 41% 38% 41%); opacity: 0.1; }
@@ -587,7 +564,7 @@ html {
 @keyframes intro-seal-place {
   0% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
   70% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
-  100% { width: min(48vw, 40rem); transform: translate(-50%, -50%) translate(5vw, 4vh) rotate(-9deg) scale(0.98); }
+  100% { width: min(48vw, 40rem); transform: translate(-50%, -50%) translate(5vw, 4vh) rotate(-9deg) scale(1); }
 }
 
 @keyframes page-rise-in {
@@ -645,7 +622,7 @@ html {
   @keyframes intro-seal-place {
     0% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
     70% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
-    100% { width: 72vw; transform: translate(-50%, -50%) translate(0, 8vh) rotate(-9deg) scale(0.98); }
+    100% { width: 72vw; transform: translate(-50%, -50%) translate(0, 8vh) rotate(-9deg) scale(1); }
   }
 
   .seal-watermark {

@@ -37,6 +37,32 @@ export default function App() {
     };
   }, [introActive]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
+
+    const returnToTop = () => {
+      const previousBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      root.style.scrollBehavior = previousBehavior;
+    };
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') returnToTop();
+    };
+
+    window.addEventListener('pageshow', returnToTop);
+    window.addEventListener('popstate', returnToTop);
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => {
+      window.history.scrollRestoration = previousRestoration;
+      window.removeEventListener('pageshow', returnToTop);
+      window.removeEventListener('popstate', returnToTop);
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, []);
+
   const handleOpenImageModal = (src: string, title: string) => {
     setModalImage({ src, title });
   };

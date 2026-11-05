@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ExternalLink, X, ArrowUpRight, Code, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
 import { PROJECTS, ProjectItem } from '../data/portfolioData';
 
@@ -189,7 +190,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
         </div>
 
         {/* Project Detail Modal */}
-        {selectedProject && (
+        {selectedProject && createPortal((
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
             onClick={() => setSelectedProject(null)}
@@ -389,7 +390,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
               )}
             </div>
           </div>
-        )}
+        ), document.body)}
       </div>
     </section>
   );
