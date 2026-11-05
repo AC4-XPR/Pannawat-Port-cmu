@@ -100,7 +100,7 @@ html {
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 36px rgba(139, 92, 246, 0.12));
   clip-path: inset(50% 50% 50% 50%);
-  animation: seal-reveal 2.4s cubic-bezier(0.2, 0.7, 0.15, 1) both, seal-float 30s ease-in-out 2.4s infinite alternate;
+  animation: seal-reveal 2.4s cubic-bezier(0.2, 0.7, 0.15, 1) both, seal-float 30s ease-in-out 3s infinite alternate;
 }
 
 .seal-trace {
@@ -250,9 +250,13 @@ html {
   background: #09090b;
 }
 .intro-seal-frame {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: min(62vmin, 25rem);
   aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(10deg) scale(0.82);
+  animation: intro-seal-place 3s cubic-bezier(0.2, 0.7, 0.15, 1) both;
 }
 .intro-seal {
   width: 100%;
@@ -487,6 +491,12 @@ html {
   100% { clip-path: inset(0); opacity: 0.1; }
 }
 
+@keyframes intro-seal-place {
+  0% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
+  70% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
+  100% { left: 55%; top: 54%; width: min(48vw, 40rem); transform: translate(-50%, -50%) rotate(-9deg) scale(0.98); }
+}
+
 @keyframes page-rise-in {
   from { opacity: 0; transform: translateY(2rem); }
   to { opacity: 1; transform: translateY(0); }
@@ -537,6 +547,12 @@ html {
 }
 
 @media (max-width: 640px) {
+  @keyframes intro-seal-place {
+    0% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
+    70% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
+    100% { left: 50%; top: 58%; width: 72vw; transform: translate(-50%, -50%) rotate(-9deg) scale(0.98); }
+  }
+
   .seal-watermark {
     left: 50%;
     top: 58%;
