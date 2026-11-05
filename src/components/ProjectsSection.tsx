@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ExternalLink, X, ArrowUpRight, Code, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
 import { PROJECTS, ProjectItem } from '../data/portfolioData';
+import { XprGroupFlowDiagram } from './XprGroupFlowDiagram';
 
 interface ProjectsSectionProps {
   onOpenImageModal: (src: string, title: string) => void;
@@ -123,32 +124,33 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                   <span className="select-stamp" aria-hidden="true">SELECT</span>
                 <div>
                   {/* Thumbnail / Image container */}
-                  <div className={`overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
-                    
-                    {/* Badge */}
-                    {project.highlightBadge && (
-                      <div className="absolute top-3 left-3 bg-neutral-950/80 backdrop-blur-md border border-neutral-700/80 text-purple-300 text-[11px] font-mono px-2.5 py-1 rounded">
-                        {project.highlightBadge}
-                      </div>
-                    )}
+                  {project.diagram === 'xpr-group' ? (
+                    <XprGroupFlowDiagram compact />
+                  ) : (
+                    <div className={`overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
 
-                    <div className="absolute top-3 right-3 p-1.5 rounded-full bg-neutral-950/70 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="w-4 h-4 text-purple-400" />
-                    </div>
+                      {project.highlightBadge && (
+                        <div className="absolute top-3 left-3 bg-neutral-950/80 backdrop-blur-md border border-neutral-700/80 text-purple-300 text-[11px] font-mono px-2.5 py-1 rounded">
+                          {project.highlightBadge}
+                        </div>
+                      )}
 
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <div className="text-xs font-mono text-neutral-400">
-                        {project.subtitle}
+                      <div className="absolute top-3 right-3 p-1.5 rounded-full bg-neutral-950/70 text-neutral-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowUpRight className="w-4 h-4 text-purple-400" />
+                      </div>
+
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <div className="text-xs font-mono text-neutral-400">{project.subtitle}</div>
                       </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Card Content */}
                   <div className="p-6 space-y-3">
@@ -228,6 +230,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                   {selectedProject.subtitle}
                 </p>
               </div>
+
+              {selectedProject.diagram === 'xpr-group' && <XprGroupFlowDiagram />}
 
               {/* Gallery Images */}
               {selectedProject.gallery && selectedProject.gallery.length > 0 && (

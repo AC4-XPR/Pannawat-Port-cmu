@@ -13,6 +13,7 @@ export interface ProjectItem {
   id: string;
   certificateIds?: string[];
   group?: 'additional';
+  diagram?: 'xpr-group';
   title: string;
   subtitle: string;
   tagline: string;
@@ -205,6 +206,52 @@ export const SKILL_CATEGORIES = [
 ];
 
 export const PROJECTS: ProjectItem[] = [
+  {
+    id: "xpr-group-corporation",
+    diagram: "xpr-group",
+    title: "XPR Group Corporation™",
+    subtitle: "A connected digital venture · Founded 28 July 2024",
+    tagline: "An evolving venture map connecting digital products, game development, collaboration, and future initiatives.",
+    category: "tool",
+    year: "2020–Present",
+    highlightBadge: "Founder · Organization Design",
+    role: ["Founder", "Organization Designer", "Product & Studio Lead"],
+    techStack: ["XPR Studio", "Digital Products", "Game Development", "Collaboration"],
+    thumbnail: "/portfolio-assets/xpr-core-values.png",
+    gallery: ["/portfolio-assets/xpr-core-values.png"],
+    description: [
+      "XPR Group Corporation™ is my long-term organizational vision for connecting independent digital ventures, product creation, and people who want to build together. Its structure is planned as four parts; Alpha and Beta are the first areas I am developing.",
+      "Alpha focuses on games and digital products through XPR Studio. Beta focuses on developing people and building partnerships. Omega Capital and Delta Ventures are future initiatives, while Nest Camp is a small experimental learning and collaboration network planned for a future rebrand.",
+      "XPR Studio began in 2020 as an online business, software, game, and media studio. Its current work includes games and tools such as AOT: New Hope, MAS Framework, and SnapCursorX. The map represents a direction in progress, with planned branches clearly marked as future work."
+    ],
+    keyFeatures: [
+      "Alpha Digital: games and digital products developed through XPR Studio",
+      "Beta Management: people development and partnership building",
+      "Nest Camp: experimental learning and collaboration network",
+      "Omega Capital and Delta Ventures: planned future initiatives",
+      "XPR Studio: game, software, and media work, including MAS Framework, SnapCursorX, and AOT: New Hope"
+    ],
+    impact: [
+      "Started XPR Studio in 2020 and continue to develop its games, software, and media work",
+      "Sets a long-term direction for moving from solo creation toward teams and collaboration"
+    ],
+    specs: {
+      projectName: "XPR Group Corporation™",
+      roles: ["Founder", "Organization Designer", "Product & Studio Lead"],
+      team: "Founder-led vision; built through future collaboration",
+      duration: "XPR Studio since 2020 · XPR Group founded 28 July 2024",
+      concept: "A four-part digital venture vision connecting products, game creation, partnerships, and future initiatives",
+      frameworkOrEngine: "Alpha Digital · Beta Management · Omega Capital · Delta Ventures",
+      result: "Active foundation: XPR Studio, Nest Camp experiment, and ongoing digital products",
+      status: "Evolving Organization"
+    },
+    links: [
+      { label: "XPR Group website", url: "https://xprgroup.carrd.co/" },
+      { label: "XPR Group GitHub", url: "https://github.com/xprgroupcorporation" },
+      { label: "XPR Studio YouTube", url: "https://www.youtube.com/@XPR_Studio" },
+      { label: "XPR Studio Discord", url: "https://discord.gg/YqbkxwRKgW" }
+    ]
+  },
   {
     id: "mas-framework",
     title: "MAS Framework",
