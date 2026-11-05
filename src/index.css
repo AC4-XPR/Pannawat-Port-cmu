@@ -213,7 +213,7 @@ html {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #d6a856;
+  color: #c4b5fd;
   font: 600 0.59rem/1.2 var(--font-mono);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -224,8 +224,8 @@ html {
   height: 0.38rem;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: #d6a856;
-  box-shadow: 0 0 12px rgba(214, 168, 86, 0.7);
+  background: #a78bfa;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.7);
 }
 
 .admission-program {
@@ -492,9 +492,9 @@ html {
 }
 
 @keyframes intro-seal-place {
-  0% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
-  70% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
-  100% { left: 55%; top: 54%; width: min(48vw, 40rem); transform: translate(-50%, -50%) rotate(-9deg) scale(0.98); }
+  0% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
+  70% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
+  100% { width: min(48vw, 40rem); transform: translate(-50%, -50%) translate(5vw, 4vh) rotate(-9deg) scale(0.98); }
 }
 
 @keyframes page-rise-in {
@@ -548,9 +548,9 @@ html {
 
 @media (max-width: 640px) {
   @keyframes intro-seal-place {
-    0% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
-    70% { left: 50%; top: 50%; width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
-    100% { left: 50%; top: 58%; width: 72vw; transform: translate(-50%, -50%) rotate(-9deg) scale(0.98); }
+    0% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(10deg) scale(0.82); }
+    70% { width: min(62vmin, 25rem); transform: translate(-50%, -50%) rotate(-9deg) scale(1); }
+    100% { width: 72vw; transform: translate(-50%, -50%) translate(0, 8vh) rotate(-9deg) scale(0.98); }
   }
 
   .seal-watermark {

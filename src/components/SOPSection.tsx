@@ -121,14 +121,14 @@ export const SOPSection: React.FC = () => {
               <div className="relative flex-1 min-h-36 sm:min-h-40 overflow-hidden">
                 <img
                   src="/portfolio-assets/campus-acl.png"
-                  alt="โรงเรียนอัสสัมชัญลำปาง Assumption College Lampang"
+                  alt="โรงเรียนอัสสัมชัญลำปาง"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
                 <div className="absolute bottom-2.5 left-3 right-3 text-xs text-white/95 font-medium flex items-center gap-1.5">
                   <School className="w-3.5 h-3.5 text-purple-400" />
-                  <span>โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)</span>
+                  <span>โรงเรียนอัสสัมชัญลำปาง</span>
                 </div>
               </div>
             </div>

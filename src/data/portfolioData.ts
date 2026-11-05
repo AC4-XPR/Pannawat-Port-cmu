@@ -74,7 +74,7 @@ export const PROFILE_DATA = {
   targetUniversity: "มหาวิทยาลัยเชียงใหม่ (Chiang Mai University)",
   targetFaculty: "วิทยาลัยศิลปะ สื่อ และเทคโนโลยี (CAMT)",
   targetProgram: "สาขาวิชาดิจิทัลเกม (Digital Games - DG)",
-  school: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+  school: "โรงเรียนอัสสัมชัญลำปาง",
   schoolTrack: "วิทยาศาสตร์ - คณิตศาสตร์ (Science - Math)",
   mbti: "INTP",
   birthDate: "28 กรกฎาคม พ.ศ. 2551 (28 July 2008)",
@@ -748,7 +748,7 @@ export const CERTIFICATES: CertificateItem[] = [
   {
     id: "acl-outstanding-robotics",
     title: "นักเรียนดีเด่นด้านกิจกรรม ประเภท การแข่งขันทักษะ (หุ่นยนต์) ประจำปีการศึกษา 2568",
-    issuer: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+    issuer: "โรงเรียนอัสสัมชัญลำปาง",
     date: "13 มิถุนายน 2569",
     awardLevel: "นักเรียนดีเด่นด้านกิจกรรม",
     category: "academic",
@@ -823,7 +823,7 @@ export const CERTIFICATES: CertificateItem[] = [
   {
     id: "acl-leadership",
     title: "กิจกรรมพัฒนาบุคลิกภาพและศิลปะการพูดเพื่อความเป็นผู้นำ หัวข้อ 'ผู้นำสำคัญไฉน'",
-    issuer: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+    issuer: "โรงเรียนอัสสัมชัญลำปาง",
     date: "12 พฤศจิกายน 2567",
     awardLevel: "Completed Seminar",
     category: "academic",
@@ -949,19 +949,19 @@ export const ACTIVITIES: ActivityItem[] = [
 export const EDUCATION_DATA = {
   primary: {
     level: "ชั้นประถมศึกษาปีที่ 1-6",
-    school: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+    school: "โรงเรียนอัสสัมชัญลำปาง",
     years: "2555–2561"
   },
   juniorHigh: {
     level: "ชั้นมัธยมศึกษาปีที่ 1-3 (ศิลป์-ภาษา)",
-    school: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+    school: "โรงเรียนอัสสัมชัญลำปาง",
     gpax: "3.54",
     semesters: "6 ภาคเรียน",
     years: "2561–2564"
   },
   seniorHigh: {
     level: "ชั้นมัธยมศึกษาปีที่ 4-6 (วิทยาศาสตร์-คณิตศาสตร์)",
-    school: "โรงเรียนอัสสัมชัญลำปาง (Assumption College Lampang)",
+    school: "โรงเรียนอัสสัมชัญลำปาง",
     gpax: "3.13",
     semesters: "5 ภาคเรียน",
     years: "2564–2567"
