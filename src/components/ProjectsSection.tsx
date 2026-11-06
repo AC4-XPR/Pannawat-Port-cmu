@@ -349,7 +349,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
 
                     {selectedProject.specs.frameworkOrEngine && (
                       <div className="space-y-1">
-                        <span className="text-neutral-400 font-mono text-[11px]">เอนจิน / สถาปัตยกรรม (Architecture):</span>
+                      <span className="text-neutral-400 font-mono text-[11px]">{selectedProject.specs.frameworkOrEngineLabel || 'เอนจิน / สถาปัตยกรรม (Architecture)'}:</span>
                         <div className="text-purple-300 font-mono">{selectedProject.specs.frameworkOrEngine}</div>
                       </div>
                     )}
@@ -361,7 +361,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
 
                     {selectedProject.specs.result && (
                       <div className="sm:col-span-2 space-y-1 pt-1 border-t border-neutral-800/50">
-                        <span className="text-neutral-400 font-mono text-[11px]">ผลลัพธ์ / รางวัล (Result & Achievement):</span>
+                      <span className="text-neutral-400 font-mono text-[11px]">{selectedProject.specs.resultLabel || 'ผลลัพธ์ / รางวัล (Result & Achievement)'}:</span>
                         <div className="text-emerald-400 font-medium flex items-center gap-1.5">
                           <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                           <span>{selectedProject.specs.result}</span>

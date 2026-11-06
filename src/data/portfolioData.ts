@@ -5,7 +5,9 @@ export interface ProjectSpecs {
   duration?: string;
   concept: string;
   frameworkOrEngine?: string;
+  frameworkOrEngineLabel?: string;
   result?: string;
+  resultLabel?: string;
   status?: string;
 }
 
@@ -698,11 +700,11 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "cybersec-experiments",
     title: "Client-Side & Cyber Security Experiments",
-    subtitle: "Security Research on Game Client Mechanics",
-    tagline: "การทดลองเจาะลึกความปลอดภัยฝั่ง Client และข้อจำกัดทางสถาปัตยกรรมเกมออนไลน์",
+    subtitle: "การศึกษาความปลอดภัยระบบเกมฝั่ง Client",
+    tagline: "ศึกษาการเข้าถึงข้อมูลและข้อจำกัดของระบบรักษาความปลอดภัยภายในเกม",
     category: "experiment",
     year: "2024–2025",
-    highlightBadge: "Security Case Study",
+    highlightBadge: "กรณีศึกษาความปลอดภัยเกม",
     role: ["Security Researcher", "Client-Side Script Investigator"],
     techStack: ["XENO", "Lua / Luau", "BillboardGui", "Memory getgc() Inspection"],
     thumbnail: "/portfolio-assets/cybersec-xeno-experiment.png",
@@ -711,27 +713,29 @@ export const PROJECTS: ProjectItem[] = [
     ],
     galleryLabels: ["Experiment101_AOT-Freedom-War.txt · ตัวอย่างการทดลองด้านความปลอดภัยเกม"],
     description: [
-      "การศึกษาทดลองทาง Cyber Security และการทำงานของฝั่ง Client ผ่านเครื่องมือสำรวจข้อมูลภายใน เพื่อทำความเข้าใจช่องโหว่ทางสถาปัตยกรรม",
-      "การทดลองที่ 1 (AOT-Freedom-War): สำรวจข้อมูลภายใน Client นำข้อมูลที่เข้าถึงได้มาแสดงตำแหน่งผู้เล่นและไททันผ่าน BillboardGui และตรวจสอบ log ผู้แฝงตัวใน Workspace พบว่าข้อมูลสำคัญที่ไม่ควรเปิดเผยถูกเก็บไว้ในที่ที่ Client เข้าถึงได้ จึงสรุปได้ว่าข้อมูลความปลอดภัยต้องย้ายไปคำนวณและเก็บรักษาฝั่ง Server เสมอ",
-      "การทดลองที่ 2 (AOT-Last-Breath): ทดลองตรรกะ 1 Click = 1 Kill ด้วยการเคลื่อนย้ายจุดอ่อนผ่าน Tween แทนการเทเลพอร์ตฉับพลัน และทดสอบระบบตรวจจับ MaybeHacker ผ่าน getgc() ในหน่วยความจำ เพื่อเรียนรู้วิธีการเขียน Anti-Cheat ป้องกันระบบเกมของตนเองในอนาคต"
+      "ศึกษาการทำงานของฝั่ง Client และทดลองสำรวจข้อมูลภายในเกมผ่าน XENO เพื่อทำความเข้าใจการเข้าถึงข้อมูลและช่องโหว่ของระบบเกม",
+      "การทดลองที่ 1 (AOT: Freedom War): สำรวจข้อมูลภายใน Client และนำมาแสดงตำแหน่งผู้เล่นและไททันผ่าน BillboardGui รวมถึงตรวจสอบข้อมูลจาก WarriorsCampaignLog และ ShifterHolders เพื่อระบุตัวผู้เล่นที่เป็นนักรบแฝงตัวและผู้ถือพลังไททัน พบว่าข้อมูลดังกล่าวถูกเก็บไว้ใน Workspace ซึ่ง Client สามารถเข้าถึงได้โดยตรง",
+      "การทดลองที่ 2 (AOT: Last Breath): ศึกษาระบบภายในเกมและทดลองสร้างสคริปต์กำจัดไททันด้วยแนวคิด 1 Click = 1 Kill โดยค้นหาไททันในระยะที่กำหนดและเคลื่อนที่ไปยังจุดอ่อนผ่าน Tween นอกจากนี้ยังทดลองตรวจสอบระบบป้องกันการเคลื่อนย้าย โดยค้นหาและปรับค่าตัวแปร MaybeHacker ผ่าน getgc() ในหน่วยความจำฝั่ง Client"
     ],
     keyFeatures: [
-      "Server-Authoritative Understanding: เข้าใจว่าทำไมการไม่เชื่อใจ Client จึงเป็นหัวใจของเกมออนไลน์",
-      "Memory & Anti-Cheat Analysis: ศึกษากลไกการทำงานของ Anti-Cheat และจุดอ่อนของ Client-Side Detection"
+      "Client-Side Security: เข้าใจข้อจำกัดของการเก็บข้อมูลสำคัญไว้ในฝั่ง Client ซึ่งผู้เล่นสามารถเข้าถึงได้",
+      "Anti-Cheat Analysis: เข้าใจการทำงานและข้อจำกัดของระบบตรวจจับการโกง รวมถึงการตรวจสอบตัวแปรภายในหน่วยความจำ"
     ],
     impact: [
-      "นำองค์ความรู้ความปลอดภัยไปประยุกต์ใช้ในการออกแบบ MAS Framework ให้มี Server Validation ป้องกันการโกง",
-      "เข้าใจหลักการ Information Security และ Data Protection เชิงลึกจากการลงมือทดสอบจริง"
+      "นำความเข้าใจเรื่องข้อจำกัดของ Client ไปใช้ประกอบการออกแบบระบบตรวจสอบข้อมูลฝั่ง Server ใน MAS Framework",
+      "ได้เรียนรู้การวิเคราะห์ช่องโหว่และข้อจำกัดของระบบป้องกันการโกงจากการทดลองจริง"
     ],
     specs: {
       projectName: "Client-Side Security Research",
       roles: ["Security Researcher", "Client-Side Script Investigator"],
       team: "Independent Research",
       duration: "2024–2025",
-      concept: "ศึกษาช่องโหว่หน่วยความจำฝั่ง Client และการสร้าง Anti-Cheat บน Server-Authoritative Architecture",
-      frameworkOrEngine: "XENO · Luau · BillboardGui · getgc() Memory Inspection",
-      result: "นำความรู้ไปใช้ออกแบบ Server Validation ป้องกันการดัดแปลงใน MAS Framework",
-      status: "Research Completed"
+      concept: "ทดลองสำรวจข้อมูลและระบบภายในเกม เพื่อศึกษาความปลอดภัยของข้อมูลและข้อจำกัดของการตรวจจับฝั่ง Client",
+      frameworkOrEngine: "XENO · Luau · BillboardGui · getgc()",
+      frameworkOrEngineLabel: "เครื่องมือ (Tools)",
+      result: "นำความรู้ด้านความปลอดภัยไปประยุกต์ใช้ในการออกแบบ Server Validation ของ MAS Framework",
+      resultLabel: "ผลลัพธ์ / การนำไปใช้ (Outcome & Application)",
+      status: "ศึกษาทดลองแล้ว"
     },
     links: [
       { label: "View source experiments", url: "https://github.com/AC4-XPR/EXPERIMENTS101" }
