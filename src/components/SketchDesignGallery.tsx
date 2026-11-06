@@ -26,7 +26,7 @@ export const SketchDesignGallery: React.FC<SketchDesignGalleryProps> = ({ onOpen
         <div>
           <span className="text-xs font-mono tracking-[0.18em] uppercase text-purple-300">แนวคิดและภาพร่าง</span>
           <h3 id="sketch-design-title" className="mt-1 text-2xl sm:text-3xl font-bold font-display text-white">03 Sketch Design</h3>
-          <p className="mt-1 text-sm text-neutral-400">ภาพร่างแนวคิดและการออกแบบ เรียงตามลำดับที่จัดทำ</p>
+          <p className="mt-1 text-sm text-neutral-400">รวมแบบอาวุธในเกม บันทึกเรียนภาษาเยอรมัน ความคิดทั่วไป และไอเดียธุรกิจ</p>
         </div>
         <button
           type="button"
