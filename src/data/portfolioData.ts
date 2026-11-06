@@ -27,6 +27,7 @@ export interface ProjectItem {
   highlightBadge?: string;
   thumbnail: string;
   gallery?: string[];
+  galleryLabels?: string[];
   specs?: ProjectSpecs;
   links?: {
     label: string;
@@ -44,6 +45,7 @@ export interface CertificateItem {
   category: 'gamedev' | 'robotics' | 'science' | 'academic';
   description: string;
   image: string;
+  imageLabel?: string;
   context?: string[];
   relatedProjectIds?: string[];
   highlight?: boolean;
@@ -61,6 +63,7 @@ export interface ActivityItem {
   learnings: string;
   image?: string;
   gallery?: string[];
+  galleryLabels?: string[];
   badge?: string;
   tech?: string[];
 }
@@ -219,6 +222,7 @@ export const PROJECTS: ProjectItem[] = [
     techStack: ["XPR Studio", "ผลิตภัณฑ์ดิจิทัล", "พัฒนาเกม", "ความร่วมมือ"],
     thumbnail: "/portfolio-assets/xpr-core-values.png",
     gallery: ["/portfolio-assets/xpr-core-values.png"],
+    galleryLabels: ["XPR Group Corporation · แนวคิดองค์กรและค่านิยมหลัก"],
     description: [
       "XPR Group Corporation™ คือแนวคิดการพัฒนาองค์กรในระยะยาว เพื่อเชื่อมโยงธุรกิจดิจิทัล การสร้างผลิตภัณฑ์ และผู้คนที่ต้องการลงมือสร้างสิ่งต่าง ๆ ร่วมกัน โดยวางโครงสร้างไว้ 4 ส่วน และเริ่มพัฒนา Alpha กับ Beta เป็นลำดับแรก",
       "Alpha มุ่งเน้นการสร้างเกมและผลิตภัณฑ์ดิจิทัลผ่าน XPR Studio ส่วน Beta มุ่งเน้นการพัฒนาบุคลากรและสร้างความร่วมมือ Omega Capital และ Delta Ventures เป็นโครงการในอนาคต ขณะที่ Nest Camp เป็นเครือข่ายทดลองด้านการเรียนรู้และทำงานร่วมกัน ซึ่งมีแผนปรับแบรนด์ต่อไป",
@@ -267,6 +271,10 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/mas-framework-overview.png",
       "/portfolio-assets/xpr-roblox-starter.png"
     ],
+    galleryLabels: [
+      "MAS Framework · โครงสร้างระบบและเครื่องมือพัฒนา",
+      "Roblox Starter Program · โปสเตอร์โครงการพัฒนาเกม"
+    ],
     description: [
       "MAS Framework เริ่มต้นจากความสนใจในการออกแบบ Software Architecture แบบ Component-Oriented Programming (COP) และ Object-Oriented Programming (OOP) เพื่อแก้ปัญหาโค้ดสปาเก็ตตีและ hard-code ในเกมขนาดใหญ่",
       "การแบ่งระบบออกเป็นส่วนย่อยที่มีหน้าที่ชัดเจนช่วยให้โค้ดเป็นระเบียบ นำกลับมาใช้ซ้ำ (reusable) และพัฒนาต่อได้ง่ายขึ้น จึงนำแนวคิดเหล่านี้มาประยุกต์เป็นโครงสร้างสำหรับการพัฒนาเกมใน Roblox ที่รองรับระบบหลาย Place",
@@ -314,6 +322,7 @@ export const PROJECTS: ProjectItem[] = [
     gallery: [
       "/portfolio-assets/snapcursorx-evolution.png"
     ],
+    galleryLabels: ["SCXApp Preview · ภาพรวมโปรแกรมและประวัติการพัฒนา"],
     description: [
       "โปรแกรม Desktop สำหรับสร้าง Workflow ควบคุม Input แบบ Visual สร้างจากปัญหาที่เจอจริงตอนเล่น PVZ Fusion ซึ่งต้องคอยขยับเมาส์ไปเลือกช่องเมล็ดพืชซ้ำ ๆ",
       "เครื่องมือที่มีอยู่ในตลาดส่วนใหญ่เป็นเพียง Auto-clicker ธรรมดา หรือ Macro Recorder ที่ต้องเขียน Script หนัก จึงพัฒนา SnapCursorX ขึ้นมาเพื่อเน้นความยืดหยุ่น ควบคุมได้ และใช้งานง่าย จากไอเดียเล็ก ๆ สู่ซอฟต์แวร์จริงที่ปล่อยให้คนอื่นใช้งาน",
@@ -365,7 +374,19 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/aot-in-game-action.png",
       "/portfolio-assets/aot-v3-gamepage.png",
       "/portfolio-assets/aot-thalverra-island.jpg",
-      "/portfolio-assets/aot-v1-badges.png"
+      "/portfolio-assets/aot-v1-badges.png",
+      "/portfolio-assets/aot-v3-in-engine-dev.png"
+    ],
+    galleryLabels: [
+      "V1_Old_Game_Page.png · หน้าเกมเวอร์ชันแรก",
+      "V1_PlayerCount.png · สถิติจำนวนผู้เล่น",
+      "V1_SuccessHistory.png · ประวัติความสำเร็จของเกม",
+      "V1_In-game_PV.png · ภาพตัวอย่างการเล่นในเกม",
+      "ภาพฉากต่อสู้และการเล่น AOT: New Hope",
+      "V3_New_Game_Page.png · หน้าเกมเวอร์ชัน 3",
+      "V3_Thalverra_Island.png · แผนที่เกาะ Thalverra",
+      "V1_Success_Counts.png · ตราสัญลักษณ์และความสำเร็จในเกม",
+      "V3_in-engine_dev · ภาพพัฒนาและทดสอบใน Roblox Studio"
     ],
     description: [
       "NEW HOPE เป็นโปรเจกต์เกม Roblox ของ XPR Studio ที่นำกลับมาพัฒนาใหม่เป็นเวอร์ชันที่ 3 (V3) หลังจากเกมต้นฉบับ V1 เคยได้รับความนิยมอย่างสูง มีผู้เล่นจำนวนมาก และยอดเข้าชมกว่า 1,000,000+ ครั้ง ก่อนที่บัญชีเดิมจะถูกแฮ็กจนไม่สามารถพัฒนาต่อได้",
@@ -396,7 +417,9 @@ export const PROJECTS: ProjectItem[] = [
     },
     links: [
       { label: "Watch V1 trailer", url: "https://www.youtube.com/watch?v=A5jWgSJvahs" },
-      { label: "Play AOT: New Hope V3", url: "https://www.roblox.com/games/126459694544898/AOT-New-Hope-V3" }
+      { label: "Play AOT: New Hope V3", url: "https://www.roblox.com/games/126459694544898/AOT-New-Hope-V3" },
+      { label: "Watch AOT:NH Motion Sickness Mode", url: "https://youtu.be/lEXAkd5pPzE" },
+      { label: "Titan Shifting WIP · Epic VFX & Camera Work", url: "https://www.tiktok.com/@ac4_xpr_studio/video/7587140133845994772" }
     ]
   },
   {
@@ -411,7 +434,14 @@ export const PROJECTS: ProjectItem[] = [
     techStack: ["Roblox Studio", "Luau", "MAS Framework v2.1.0", "3D Lighting", "Puzzle Engine"],
     thumbnail: "/portfolio-assets/shattered-memories-gameplay.png",
     gallery: [
-      "/portfolio-assets/shattered-memories-gameplay.png"
+      "/portfolio-assets/shattered-memories-gameplay.png",
+      "/portfolio-assets/shattered-memories-monster.jpg",
+      "/portfolio-assets/shattered-memories-atmosphere.jpg"
+    ],
+    galleryLabels: [
+      "In-game-SS.png · ภาพฉากและบรรยากาศใน Shattered Memories",
+      "Monster",
+      "Atmosphere Stuffs"
     ],
     description: [
       "เกมสยองขวัญและไขปริศนาในมุมมองบุคคลที่หนึ่งแบบ Point-and-Click นำกลับมาพัฒนาใหม่จาก Map สำรองหลังจากเหตุการณ์ถูกแฮ็กบัญชี",
@@ -458,6 +488,7 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/cert-rst-gamejam-2024.jpg",
       "/portfolio-assets/award-rst-winnerboard.jpg"
     ],
+    galleryLabels: ["CERTIFICATE-RST.png · ใบประกาศนียบัตร RST Game Jam 2024", "Result.png · ผลการแข่งขัน RST Game Jam 2024"],
     description: [
       "ผลงานเกมเข้าแข่งขันในรายการ RST Game Jam 2024 จัดขึ้นโดย ศรีวิสา กรุ๊ป ภายใต้ระยะเวลาจำกัดเพียง 4 วัน",
       "ทีม XPR Studio สมาชิก 3 คน ผมรับหน้าที่เป็นโปรแกรมเมอร์หลักและผู้จัดการทีม ควบคุมการพัฒนา ทดสอบระบบ และส่งมอบงานให้ทันเดดไลน์",
@@ -499,6 +530,7 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/cert-dpu-softpower.png",
       "/portfolio-assets/dpu-showcase.jpg"
     ],
+    galleryLabels: ["CERTIFICATE-TSRGCF.png · ใบประกาศนียบัตรการแข่งขัน", "Onsite_Showcase.png · การนำเสนอผลงานในงานจัดแสดง"],
     description: [
       "เข้าร่วมการแข่งขัน Thailand’s Soft Power Roblox Game Creation Festival จัดโดยวิทยาลัยครีเอทีฟดีไซน์ แอนด์ เอ็นเตอร์เทนเมนต์เทคโนโลยี (ANT) มหาวิทยาลัยธุรกิจบัณฑิตย์ (DPU) ร่วมกับกรมส่งเสริมวัฒนธรรม กระทรวงวัฒนธรรม",
       "ทีม Ayutthaya.exe สมาชิก 3 คน ใช้เวลาพัฒนา 8 สัปดาห์ พร้อมเข้ารับการอบรม DPU Lecture",
@@ -542,6 +574,7 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/ggj-team-stage.png",
       "/portfolio-assets/ggj-gameplay.png"
     ],
+    galleryLabels: ["CERTIFICATE-GGJ2026.png · ใบประกาศนียบัตร Global Game Jam", "GGJ2026-6-2-12.png · ภาพทีมผู้พัฒนา", "Slide_and_Gameplay.png · สไลด์และภาพการเล่นเกม"],
     description: [
       "เข้าร่วมการแข่งขัน Global Game Jam 2026 สนาม On-site ณ กรุงเทพฯ ภายใต้โจทย์ประจำปี 'Theme of the Mask'",
       "ทีม XPR Studio สมาชิก 6 คน พัฒนาเกมจนจบภายใน 48 ชั่วโมง",
@@ -581,6 +614,7 @@ export const PROJECTS: ProjectItem[] = [
     gallery: [
       "/portfolio-assets/tcas-command-center-app.png"
     ],
+    galleryLabels: ["TCAS Command Center · ภาพตัวอย่างหน้าเว็บจาก Screenshot 214619, 214712 และ 214744"],
     description: [
       "พัฒนาขึ้นในค่าย PassionSeed SHIFT[1] Camp เพื่อแก้ปัญหาข้อมูล myTCAS ที่กระจายอยู่หลายหน้าและขาดเครื่องมือบันทึกหลักสูตรที่ผู้เรียนสนใจ",
       "พัฒนา TCAS Command Center ให้ผู้ใช้สามารถค้นหา กรอง บันทึก และเปรียบเทียบหลักสูตรจากหลายมหาวิทยาลัยได้ในที่เดียว พร้อมปรับแต่งการใช้งานตามความต้องการของตนเอง",
@@ -628,6 +662,13 @@ export const PROJECTS: ProjectItem[] = [
       "/portfolio-assets/cert-arts-crafts-gold.jpg",
       "/portfolio-assets/lampang-rajabhat-stage.jpg"
     ],
+    galleryLabels: [
+      "1st-MB_wear.png · อุปกรณ์ micro:bit สำหรับสวมใส่",
+      "Coding-webEditor.png · การเขียนโปรแกรม micro:bit",
+      "ภาพรางวัลโครงงานวิทยาศาสตร์ระดับภาคเหนือ",
+      "ภาพรางวัลศิลปหัตถกรรมนักเรียน",
+      "ภาพนำเสนอโครงงานในงานสัปดาห์วิทยาศาสตร์"
+    ],
     description: [
       "โครงงานวิทยาศาสตร์สิ่งประดิษฐ์ที่พัฒนาขึ้นเพื่อช่วยส่งเสริมการทำกายภาพบำบัดและเพิ่มความปลอดภัยให้กับผู้สูงอายุ",
       "ใช้งานร่วมกับบอร์ด micro:bit ตัวอุปกรณ์สามารถตรวจจับการเคลื่อนไหวเพื่อนับจำนวนครั้งในการยกแขน และตรวจจับแรงสั่นสะเทือนในกรณีที่ผู้ใช้งานลื่นหรือหกล้ม พร้อมส่งสัญญาณเตือนไปยังผู้ดูแล",
@@ -668,6 +709,7 @@ export const PROJECTS: ProjectItem[] = [
     gallery: [
       "/portfolio-assets/cybersec-xeno-experiment.png"
     ],
+    galleryLabels: ["Experiment101_AOT-Freedom-War.txt · ตัวอย่างการทดลองด้านความปลอดภัยเกม"],
     description: [
       "การศึกษาทดลองทาง Cyber Security และการทำงานของฝั่ง Client ผ่านเครื่องมือสำรวจข้อมูลภายใน เพื่อทำความเข้าใจช่องโหว่ทางสถาปัตยกรรม",
       "การทดลองที่ 1 (AOT-Freedom-War): สำรวจข้อมูลภายใน Client นำข้อมูลที่เข้าถึงได้มาแสดงตำแหน่งผู้เล่นและไททันผ่าน BillboardGui และตรวจสอบ log ผู้แฝงตัวใน Workspace พบว่าข้อมูลสำคัญที่ไม่ควรเปิดเผยถูกเก็บไว้ในที่ที่ Client เข้าถึงได้ จึงสรุปได้ว่าข้อมูลความปลอดภัยต้องย้ายไปคำนวณและเก็บรักษาฝั่ง Server เสมอ",
@@ -706,12 +748,22 @@ export const PROJECTS: ProjectItem[] = [
     highlightBadge: "Additional Personal Project",
     role: ["Game Developer", "Systems Programmer"],
     techStack: ["Roblox Studio", "Luau", "Open-World RPG Design"],
-    thumbnail: "/portfolio-assets/epic-world-cover.png",
-    gallery: ["/portfolio-assets/epic-world-cover.png"],
+    thumbnail: "/portfolio-assets/epic-world-thumbnail.png",
+    gallery: [
+      "/portfolio-assets/epic-world-thumbnail.png",
+      "/portfolio-assets/epic-world-cover.png",
+      "/portfolio-assets/epic-world-xpr-2019.png"
+    ],
+    galleryLabels: [
+      "Thumbnail",
+      "ภาพปกเกม Epic World · RPG Open World Adventure",
+      "Old XPR Pic · Year 2019. Before XPR became what it is today. The first generation of the team before the 2024 XPR reform. We started as nothing more than a small group of gamers. Some members have left, while others still stand here today."
+    ],
     description: [
       "Epic World เป็นหนึ่งในโปรเจกต์แรกที่ผมพัฒนาระบบเกมด้วยตัวเอง หลังจากเริ่มทดลองใช้ Roblox Studio และเรียนรู้จาก Free Models",
       "เมื่อเกมมีขนาดใหญ่ขึ้น การเขียนระบบแบบ Hard-code โดยเฉพาะ Inventory ที่มีโค้ดยาวกว่า 3,000 บรรทัด ทำให้แก้ไขและต่อยอดได้ยาก ประสบการณ์นี้เป็นจุดเริ่มต้นที่ทำให้ผมสนใจการออกแบบสถาปัตยกรรมซอฟต์แวร์และระบบเกมที่ดูแลต่อได้",
-      "โปรเจกต์และกลุ่มเดิมสูญหายหลังบัญชี Roblox ถูกแฮ็ก"
+      "โปรเจกต์และกลุ่มเดิมสูญหายหลังบัญชี Roblox ถูกแฮ็ก",
+      "Year 2019. Before XPR became what it is today. The first generation of the team before the 2024 XPR reform. We started as nothing more than a small group of gamers. Some members have left, while others still stand here today."
     ],
     keyFeatures: [
       "แนวเกม RPG ผจญภัยในโลกเปิด",
@@ -732,17 +784,27 @@ export const PROJECTS: ProjectItem[] = [
     role: ["Lead Developer"],
     techStack: ["Roblox Studio", "Luau", "MAS Framework v1.6.0"],
     thumbnail: "/portfolio-assets/furloughed-memories-cover.png",
-    gallery: ["/portfolio-assets/furloughed-memories-cover.png"],
+    gallery: [
+      "/portfolio-assets/furloughed-memories-cover.png",
+      "/portfolio-assets/furloughed-memories-mas-dev.png"
+    ],
+    galleryLabels: [
+      "ภาพปกเกม Furloughed Memories",
+      "หลักฐานการพัฒนาใน Roblox Studio โดยใช้ MAS Framework"
+    ],
     description: [
-      "โปรเจกต์เกมสยองขวัญเอาชีวิตรอดแบบ Asymmetrical Horror ที่วางรูปแบบการแข่งขันระหว่างผู้เล่น 5 คนกับอีก 1 คน",
-      "ผมรับหน้าที่ Lead Developer และดูแลการพัฒนาระบบด้วย MAS Framework v1.6.0",
-      "ยุติโครงการเนื่องจากทิศทางการพัฒนายังไม่ชัดเจน"
+      "Furloughed Memories เป็นโปรเจกต์เกมสยองขวัญเอาชีวิตรอดแบบ Asymmetrical Horror ที่แบ่งผู้เล่นเป็นสองฝ่ายในรูปแบบ 5 ต่อ 1 ผมไม่ได้เป็นเจ้าของเกม แต่ร่วมพัฒนาให้กับทีมในฐานะ Lead Developer",
+      "ผมดูแลการพัฒนาระบบด้วย MAS Framework v1.6.0 ก่อนยุติโครงการเนื่องจากทิศทางการพัฒนาจาก Game Director ไม่ชัดเจน"
     ],
     keyFeatures: [
       "รูปแบบเอาชีวิตรอดแบบ 5v1",
       "วางโครงสร้างระบบโดยใช้ MAS Framework v1.6.0"
     ],
-    impact: ["ได้ฝึกวางระบบและประเมินทิศทางของโปรเจกต์เกมก่อนขยายขอบเขตงาน"]
+    impact: ["ได้ฝึกวางระบบและประเมินทิศทางของโปรเจกต์เกมก่อนขยายขอบเขตงาน"],
+    links: [
+      { label: "เล่น Furloughed Memories", url: "https://www.roblox.com/games/116917547687447/Furloughed-Memories" },
+      { label: "ชมวิดีโอบน YouTube", url: "https://www.youtube.com/watch?v=05OxScpW-kQ" }
+    ]
   }
 ];
 
@@ -952,6 +1014,11 @@ export const ACTIVITIES: ActivityItem[] = [
       "/portfolio-assets/ftc-team-stage.png",
       "/portfolio-assets/ftc-robot-dev.png",
       "/portfolio-assets/ftc-team-coding.png"
+    ],
+    galleryLabels: [
+      "24070_and_26575.png · ภาพทีม NEOHARDDRIVE",
+      "Robot#26575.png · หุ่นยนต์ที่ใช้แข่งขัน",
+      "WorkProgress1-3.png · ภาพการพัฒนาและทดสอบหุ่นยนต์"
     ]
   },
   {
@@ -970,7 +1037,8 @@ export const ACTIVITIES: ActivityItem[] = [
     gallery: [
       "/portfolio-assets/ggj-team-stage.png",
       "/portfolio-assets/ggj-gameplay.png"
-    ]
+    ],
+    galleryLabels: ["GGJ2026-6-2-12.png · ภาพทีม Global Game Jam", "Slide_and_Gameplay.png · สไลด์และภาพการเล่น REAL IN LAIR"]
   },
   {
     id: "bangmod-hackathon-activity",
@@ -984,7 +1052,9 @@ export const ACTIVITIES: ActivityItem[] = [
     tech: ["C++", "Dev-C++", "Algorithms", "Problem Solving"],
     description: "การแข่งขันเขียนโปรแกรมและแก้โจทย์ปัญหาโดยใช้ภาษา C/C++ สำหรับนักเรียนระดับมัธยมศึกษาตอนปลายภายใต้เวลาที่จำกัด เป็นครั้งแรกที่ได้นำ C++ มาใช้แก้โจทย์แข่งขันจริงนอกเหนือจากการเรียนในห้องเรียน",
     learnings: "แม้ผลการแข่งขันของผมจะออกมาไม่ดีนัก แต่การแข่งขันครั้งนี้กลับเป็นหนึ่งในประสบการณ์ที่ทำให้ผมเห็นข้อจำกัดของตัวเองได้ชัดเจนที่สุด เพราะเมื่อเจอโจทย์ที่ไม่คุ้นเคยและมีเวลาจำกัด ผมพบว่าความสามารถในการเขียนโปรแกรมเพียงอย่างเดียวไม่ได้แปลว่าจะสามารถแก้ปัญหาได้ดีเสมอไป และเป็นแรงผลักดันให้ศึกษาด้าน Computer Science และ Architecture อย่างลึกซึ้งยิ่งขึ้น",
-    image: "/portfolio-assets/cert-kmutt-bangmod.png"
+    image: "/portfolio-assets/cert-kmutt-bangmod.png",
+    gallery: ["/portfolio-assets/cert-kmutt-bangmod.png"],
+    galleryLabels: ["CERTIFICATE-KMUTT.png · ใบประกาศนียบัตร Bangmod Hackathon"]
   },
   {
     id: "thera-time-competitions",
@@ -1003,6 +1073,11 @@ export const ACTIVITIES: ActivityItem[] = [
       "/portfolio-assets/lampang-rajabhat-stage.jpg",
       "/portfolio-assets/acl-stage-award.jpg",
       "/portfolio-assets/thera-microbit-device.png"
+    ],
+    galleryLabels: [
+      "ภาพนำเสนอโครงงาน · งานสัปดาห์วิทยาศาสตร์ มรภ. ลำปาง",
+      "ภาพรับรางวัล · งานศิลปหัตถกรรมนักเรียน",
+      "อุปกรณ์ต้นแบบ THERA TIME · micro:bit"
     ]
   }
 ];

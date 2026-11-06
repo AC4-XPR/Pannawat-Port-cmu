@@ -128,7 +128,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                   {project.diagram === 'xpr-group' ? (
                     <XprGroupFlowDiagram compact />
                   ) : (
-                    <div className={`overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
+                    <div className={`image-caption-frame overflow-hidden relative bg-neutral-950 ${isWide ? 'aspect-[21/9]' : 'aspect-[16/10]'}`}>
                       <img
                         src={project.thumbnail}
                         alt={project.title}
@@ -150,6 +150,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                       <div className="absolute bottom-3 left-3 right-3">
                         <div className="text-xs font-mono text-neutral-400">{project.subtitle}</div>
                       </div>
+                      <span className="image-caption-pop">{project.galleryLabels?.[0] || project.title}</span>
                     </div>
                   )}
 
@@ -243,18 +244,25 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
                     {selectedProject.gallery.map((imgSrc, gIdx) => (
                       <div
                         key={gIdx}
-                        onClick={() => onOpenImageModal(imgSrc, `${selectedProject.title} screenshot`)}
-                        className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[16/10] cursor-pointer hover:border-purple-500/50 transition-colors relative group"
+                        onClick={() => onOpenImageModal(imgSrc, selectedProject.galleryLabels?.[gIdx] || `${selectedProject.title} screenshot`)}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            onOpenImageModal(imgSrc, selectedProject.galleryLabels?.[gIdx] || `${selectedProject.title} screenshot`);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`ขยายภาพ: ${selectedProject.galleryLabels?.[gIdx] || `${selectedProject.title} ภาพที่ ${gIdx + 1}`}`}
+                        className="image-caption-frame rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[16/10] cursor-pointer hover:border-purple-500/50 transition-colors relative group"
                       >
                         <img
                           src={imgSrc}
-                          alt={`${selectedProject.title} ${gIdx + 1}`}
+                          alt={selectedProject.galleryLabels?.[gIdx] || `${selectedProject.title} ${gIdx + 1}`}
                           referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        <span className="absolute bottom-2 right-2 text-[10px] bg-black/70 text-white/90 px-2 py-0.5 rounded font-mono">
-                          คลิกดูภาพใหญ่
-                        </span>
+                        <span className="image-caption-pop">{selectedProject.galleryLabels?.[gIdx] || `${selectedProject.title} · ภาพที่ ${gIdx + 1}`}</span>
                       </div>
                     ))}
                   </div>

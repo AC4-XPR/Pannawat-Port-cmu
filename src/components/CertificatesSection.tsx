@@ -115,7 +115,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
               <span className="select-stamp" aria-hidden="true">SELECT</span>
               <div>
                 {/* Certificate Image Frame */}
-                <div className="relative aspect-[4/3] bg-neutral-950 overflow-hidden">
+                <div className="image-caption-frame group relative aspect-[4/3] bg-neutral-950 overflow-hidden">
                   <img
                     src={cert.image}
                     alt={cert.title}
@@ -123,6 +123,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent" />
+                  <span className="image-caption-pop">{cert.imageLabel || cert.title}</span>
 
                   {/* Top Zoom Icon */}
                   <div className="absolute top-3 right-3 p-1.5 rounded-full bg-neutral-950/80 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -212,7 +213,16 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
               {/* Certificate Image Frame with Click to Zoom */}
               <div
                 onClick={() => onOpenImageModal(selectedCert.image, selectedCert.title)}
-                className="relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[4/3] cursor-pointer group hover:border-purple-500/50 transition-colors"
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onOpenImageModal(selectedCert.image, selectedCert.imageLabel || selectedCert.title);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`ขยายภาพ: ${selectedCert.imageLabel || selectedCert.title}`}
+                className="image-caption-frame relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[4/3] cursor-pointer group hover:border-purple-500/50 transition-colors"
               >
                 <img
                   src={selectedCert.image}
@@ -226,6 +236,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onOpen
                     <span>คลิกเพื่อดูภาพเต็มจอ</span>
                   </div>
                 </div>
+                <span className="image-caption-pop">{selectedCert.imageLabel || selectedCert.title}</span>
               </div>
 
               {/* Meta Details */}

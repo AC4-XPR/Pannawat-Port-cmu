@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="vfx-card w-full max-w-[270px] sm:max-w-[310px] rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 shadow-xl shadow-purple-950/20 group">
               {/* Profile Image with subtle framing */}
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-950 relative">
+              <div className="image-caption-frame group aspect-[4/3] overflow-hidden bg-neutral-950 relative">
                 <img
                   src="/portfolio-assets/profile-photo.jpg"
                   alt="ปัณณวัฒน์ ฝั้นจักสาย (Andy) ขณะแข่งขัน Global Game Jam 2026"
@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent pointer-events-none" />
 
                 {/* Sub-label inside photo */}
-                <div className="absolute bottom-2.5 left-3 right-3 text-left">
+                <div className="hero-photo-caption absolute bottom-2.5 left-3 right-3 text-left">
                   <div className="text-[11px] font-mono text-purple-300">
                     Global Game Jam 2026 On-site
                   </div>
@@ -100,6 +100,7 @@ export const Hero: React.FC = () => {
                     Lead Programmer · XPR Studio
                   </div>
                 </div>
+                <span className="image-caption-pop">Global Game Jam 2026 On-site · ภาพผู้พัฒนาเกม</span>
               </div>
 
               {/* Bottom Info Card Strip */}

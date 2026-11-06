@@ -78,18 +78,25 @@ export const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onOpenImag
                   {act.gallery.map((imgSrc, gIdx) => (
                     <div
                       key={gIdx}
-                      onClick={() => onOpenImageModal(imgSrc, `${act.title} (${gIdx + 1})`)}
-                      className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[16/10] cursor-pointer hover:border-purple-500/50 transition-colors group relative"
+                      onClick={() => onOpenImageModal(imgSrc, act.galleryLabels?.[gIdx] || `${act.title} (${gIdx + 1})`)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          onOpenImageModal(imgSrc, act.galleryLabels?.[gIdx] || `${act.title} (${gIdx + 1})`);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`ขยายภาพ: ${act.galleryLabels?.[gIdx] || `${act.title} ภาพที่ ${gIdx + 1}`}`}
+                      className="image-caption-frame rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-[16/10] cursor-pointer hover:border-purple-500/50 transition-colors group relative"
                     >
                       <img
                         src={imgSrc}
-                        alt={`${act.title} ${gIdx + 1}`}
+                        alt={act.galleryLabels?.[gIdx] || `${act.title} ${gIdx + 1}`}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      <span className="absolute bottom-2 right-2 text-[10px] bg-black/70 text-white/90 px-2 py-0.5 rounded font-mono">
-                        ขยายภาพ
-                      </span>
+                      <span className="image-caption-pop">{act.galleryLabels?.[gIdx] || `${act.title} · ภาพที่ ${gIdx + 1}`}</span>
                     </div>
                   ))}
                 </div>

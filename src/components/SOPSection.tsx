@@ -106,11 +106,14 @@ export const SOPSection: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <img
-                  src="/portfolio-assets/andy-studio-portrait.jpg"
-                  alt="ภาพถ่ายประจำตัวของปัณณวัฒน์ ฝั้นจักสาย"
-                  className="w-16 h-20 shrink-0 rounded-lg border border-purple-400/40 object-cover object-top shadow-md shadow-purple-950/30"
-                />
+                <div className="image-caption-frame group relative w-16 h-20 shrink-0 overflow-hidden rounded-lg border border-purple-400/40 shadow-md shadow-purple-950/30">
+                  <img
+                    src="/portfolio-assets/andy-studio-portrait.jpg"
+                    alt="ภาพถ่ายประจำตัวของปัณณวัฒน์ ฝั้นจักสาย"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <span className="image-caption-pop">ภาพถ่ายประจำตัว</span>
+                </div>
                 <div className="min-w-0 flex-1 space-y-2 text-xs">
                   <div className="flex justify-between gap-2 py-1 border-b border-neutral-800/40">
                     <span className="text-neutral-400">ชื่อ & สกุล:</span>
@@ -185,7 +188,7 @@ export const SOPSection: React.FC = () => {
 
             {/* School Campus Photo */}
             <div className="h-full rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/50 flex flex-col">
-              <div className="relative flex-1 min-h-36 sm:min-h-40 overflow-hidden">
+              <div className="image-caption-frame group relative flex-1 min-h-36 sm:min-h-40 overflow-hidden">
                 <img
                   src="/portfolio-assets/campus-acl.png"
                   alt="โรงเรียนอัสสัมชัญลำปาง"
@@ -193,10 +196,11 @@ export const SOPSection: React.FC = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 right-3 text-xs text-white/95 font-medium flex items-center gap-1.5">
+                <div className="campus-photo-caption absolute bottom-2.5 left-3 right-3 text-xs text-white/95 font-medium flex items-center gap-1.5">
                   <School className="w-3.5 h-3.5 text-purple-400" />
                   <span>โรงเรียนอัสสัมชัญลำปาง</span>
                 </div>
+                <span className="image-caption-pop">โรงเรียนอัสสัมชัญลำปาง · ภาพสถานศึกษา</span>
               </div>
             </div>
           </div>

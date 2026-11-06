@@ -327,7 +327,7 @@ html {
 .sketch-frame:hover, .sketch-frame:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-color: #a78bfa; }
 .sketch-frame:hover img, .sketch-frame:focus-visible img { transform: scale(1.04); opacity: 1; }
 .sketch-index { position: absolute; top: 0.6rem; left: 0.6rem; padding: 0.3rem 0.45rem; border: 1px solid rgba(196, 181, 253, 0.24); border-radius: 0.4rem; color: #ddd6fe; background: rgba(12, 10, 18, 0.78); font: 600 0.58rem/1.1 var(--font-mono); letter-spacing: 0.08em; }
-.sketch-zoom { position: absolute; right: 0.55rem; bottom: 0.55rem; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.38rem 0.5rem; border: 1px solid rgba(196, 181, 253, 0.25); border-radius: 0.45rem; color: white; background: rgba(12, 10, 18, 0.82); font-size: 0.65rem; opacity: 0; transition: opacity 180ms ease; }
+.sketch-zoom { position: absolute; top: 0.55rem; right: 0.55rem; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.38rem 0.5rem; border: 1px solid rgba(196, 181, 253, 0.25); border-radius: 0.45rem; color: white; background: rgba(12, 10, 18, 0.82); font-size: 0.65rem; opacity: 0; transition: opacity 180ms ease; }
 .sketch-zoom svg { width: 0.75rem; height: 0.75rem; }
 .sketch-frame:hover .sketch-zoom, .sketch-frame:focus-visible .sketch-zoom { opacity: 1; }
 .sketch-gallery-hint { margin: 0.65rem 0 0; color: #71717a; font-size: 0.7rem; text-align: right; }
@@ -338,6 +338,22 @@ html {
   .sketch-lane { gap: 0.75rem; padding-right: 0.75rem; }
   .sketch-design-heading h3 { font-size: 1.4rem; }
 }
+.image-caption-frame { isolation: isolate; }
+.image-caption-pop {
+  position: absolute; z-index: 30; left: 50%; bottom: 0.7rem; width: max-content; max-width: calc(100% - 1.25rem);
+  padding: 0.5rem 0.75rem; border: 1px solid rgba(196, 181, 253, 0.35); border-radius: 0.65rem;
+  color: #fafafa; background: rgba(12, 10, 18, 0.9); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px); font-size: 0.72rem; line-height: 1.35; text-align: center; overflow-wrap: anywhere;
+  opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, 0.4rem);
+  transition: opacity 170ms ease, transform 170ms ease, visibility 170ms;
+}
+.image-caption-frame:hover .image-caption-pop,
+.image-caption-frame:focus-within .image-caption-pop,
+.selection-target:focus-visible .image-caption-pop {
+  opacity: 1; visibility: visible; transform: translate(-50%, 0);
+}
+.image-caption-frame:hover .hero-photo-caption,
+.image-caption-frame:hover .campus-photo-caption { opacity: 0; transition: opacity 150ms ease; }
 @media (prefers-reduced-motion: reduce) {
   .sketch-track { animation: none; transform: translateX(0); }
 }

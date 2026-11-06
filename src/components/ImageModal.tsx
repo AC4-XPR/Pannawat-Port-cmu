@@ -89,7 +89,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({ src, title, onClose }) =
         </div>
 
         {/* Image Content Container */}
-        <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-neutral-950/80">
+        <div className="image-caption-frame group relative flex-1 overflow-auto p-4 flex items-center justify-center bg-neutral-950/80">
           <img
             src={src}
             alt={title || 'Preview'}
@@ -97,6 +97,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({ src, title, onClose }) =
             style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}
             className="max-h-[75vh] max-w-full object-contain transition-transform duration-200 select-none rounded-lg shadow-lg"
           />
+          <span className="image-caption-pop">{title || 'ภาพขยาย'}</span>
         </div>
       </div>
     </div>

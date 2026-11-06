@@ -49,7 +49,7 @@ export const SketchDesignGallery: React.FC<SketchDesignGalleryProps> = ({ onOpen
                 return (
                   <button
                     type="button"
-                    className="sketch-frame"
+                    className="sketch-frame image-caption-frame"
                     key={filename}
                     tabIndex={copy === 1 ? -1 : 0}
                     aria-label={`เปิดภาพร่างลำดับที่ ${index + 1}`}
@@ -58,6 +58,7 @@ export const SketchDesignGallery: React.FC<SketchDesignGalleryProps> = ({ onOpen
                     <img src={src} alt={`ภาพร่างแนวคิด ลำดับที่ ${index + 1}`} loading="lazy" />
                     <span className="sketch-index">SKETCH {String(index + 1).padStart(2, '0')}</span>
                     <span className="sketch-zoom"><ZoomIn aria-hidden="true" /> ดูภาพเต็ม</span>
+                    <span className="image-caption-pop">ภาพร่างแนวคิด · ลำดับที่ {index + 1}</span>
                   </button>
                 );
               })}
