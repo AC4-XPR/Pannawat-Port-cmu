@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ExternalLink, X, ArrowUpRight, Code, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
 import { PROJECTS, ProjectItem } from '../data/portfolioData';
 import { XprGroupFlowDiagram } from './XprGroupFlowDiagram';
+import { SketchDesignGallery } from './SketchDesignGallery';
 
 interface ProjectsSectionProps {
   onOpenImageModal: (src: string, title: string) => void;
@@ -190,6 +191,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenImageMod
             );
           })}
         </div>
+
+        {filter === 'all' && <SketchDesignGallery onOpenImage={onOpenImageModal} />}
 
         {/* Project Detail Modal */}
         {selectedProject && createPortal((
