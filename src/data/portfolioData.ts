@@ -271,11 +271,13 @@ export const PROJECTS: ProjectItem[] = [
     thumbnail: "/portfolio-assets/mas-framework-overview.png",
     gallery: [
       "/portfolio-assets/mas-framework-overview.png",
-      "/portfolio-assets/xpr-roblox-starter.png"
+      "/portfolio-assets/xpr-roblox-starter.png",
+      "/portfolio-assets/mas-workflow-diagram-v2.1.0.png"
     ],
     galleryLabels: [
       "MAS Framework · โครงสร้างระบบและเครื่องมือพัฒนา",
-      "Roblox Starter Program · โปสเตอร์โครงการพัฒนาเกม"
+      "Roblox Starter Program · โปสเตอร์โครงการพัฒนาเกม",
+      "MAS Workflow Diagram v2.1.0 · แผนผังเวิร์กโฟลว์ของเฟรมเวิร์ก"
     ],
     description: [
       "MAS Framework เริ่มต้นจากความสนใจในการออกแบบ Software Architecture แบบ Component-Oriented Programming (COP) และ Object-Oriented Programming (OOP) เพื่อแก้ปัญหาโค้ดสปาเก็ตตีและ hard-code ในเกมขนาดใหญ่",
